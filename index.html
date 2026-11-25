@@ -1464,9 +1464,9 @@
           <label for="select-exam" class="field-label">Examination</label>
           <div class="exam-select-row">
             <select id="select-exam" onchange="handleExamChange(this.value)" class="form-select">
-              <option value="midterm1" selected>1. 1st Midterm</option>
+              <option value="midterm1" selected>1. Mid Term I</option>
               <option value="quarterly">2. Quarterly Examination</option>
-              <option value="midterm2">3. IInd Mid Term</option>
+              <option value="midterm2">3. Mid Term II</option>
               <option value="halfyearly">4. Half Yearly</option>
               <option value="revision1">5. Revision Test 1</option>
               <option value="revision2">6. Revision Test 2</option>
@@ -1499,8 +1499,8 @@
 
       <div class="context-strip">
         <div class="context-badges">
-          <span class="badge-indigo" id="badge-active-context">Class XI &bull; 1. 1st Midterm &bull; Group A (English Medium)</span>
-          <span class="badge-amber" id="rule-summary-badge">Mid Term Rule: Lang/Maths Test/50 &rarr; 90 + Int(10) | Science/CS Test/40 &rarr; 70 + Int(10) + Prac(20)</span>
+          <span class="badge-indigo" id="badge-active-context">Class XI &bull; 1. Mid Term I &bull; Group A (English Medium)</span>
+          <span class="badge-amber" id="rule-summary-badge">Mid Term Rule: Lang/Maths Test/50 &times; 2 = 100 | Science/CS Test/40 &rarr; 70 + Int(10) + Prac(20)</span>
         </div>
         <div style="color: var(--text-muted);">
           Pass: <strong id="pass-mark-display" style="color: var(--text-primary);">35 / 100</strong> per subject &bull; Type <span class="kbd-tag">AB</span> for Absent
@@ -1670,8 +1670,8 @@
             <label class="radio-card">
               <input type="radio" name="exam-pattern-mode" value="midterm" onchange="toggleCustomExamPatternFields()" />
               <div>
-                <span class="radio-card-title">Mid-Term Conversion Pattern (Test 50&rarr;90 / 40&rarr;70 + Int 10 + Prac 20 = 100)</span>
-                <span class="radio-card-desc">Scales written test marks to 90/70 and adds Internal (10) and Practical (20) to total 100 per subject.</span>
+                <span class="radio-card-title">Mid-Term Pattern (Lang/Maths Test/50 &times; 2 = 100 | Science/CS Test/40&rarr;70 + Int 10 + Prac 20)</span>
+                <span class="radio-card-desc">Multiplies Language &amp; Maths test marks (out of 50) by 2, and scales Science/CS (out of 40) to 70 + Int(10) + Prac(20) = 100.</span>
               </div>
             </label>
 
@@ -1871,9 +1871,9 @@
     };
 
     const BASE_EXAMS = [
-      { id: 'midterm1', name: '1. 1st Midterm', isMidTerm: true, mode: 'midterm', isCustom: false },
+      { id: 'midterm1', name: '1. Mid Term I', isMidTerm: true, mode: 'midterm', isCustom: false },
       { id: 'quarterly', name: '2. Quarterly Examination', isMidTerm: false, mode: 'standard', isCustom: false },
-      { id: 'midterm2', name: '3. IInd Mid Term', isMidTerm: true, mode: 'midterm', isCustom: false },
+      { id: 'midterm2', name: '3. Mid Term II', isMidTerm: true, mode: 'midterm', isCustom: false },
       { id: 'halfyearly', name: '4. Half Yearly', isMidTerm: false, mode: 'standard', isCustom: false },
       { id: 'revision1', name: '5. Revision Test 1', isMidTerm: false, mode: 'standard', isCustom: false },
       { id: 'revision2', name: '6. Revision Test 2', isMidTerm: false, mode: 'standard', isCustom: false },
@@ -1969,15 +1969,15 @@
 
       if (midTerm) {
         if (practical) {
-          return { hasPractical: true, hasInternal: true, isMidTerm: true, isMonthly: false, rawMax: 40, convertedMax: 70, internalMax: 10, practicalMax: 20, finalMax: 100, passMark: 35 };
+          return { hasPractical: true, hasInternal: true, isMidTerm: true, isMonthly: false, isDirectDouble: false, rawMax: 40, convertedMax: 70, internalMax: 10, practicalMax: 20, finalMax: 100, passMark: 35 };
         }
-        return { hasPractical: false, hasInternal: true, isMidTerm: true, isMonthly: false, rawMax: 50, convertedMax: 90, internalMax: 10, practicalMax: 0, finalMax: 100, passMark: 35 };
+        return { hasPractical: false, hasInternal: false, isMidTerm: true, isMonthly: false, isDirectDouble: true, rawMax: 50, convertedMax: 100, internalMax: 0, practicalMax: 0, finalMax: 100, passMark: 35 };
       }
 
       if (practical) {
-        return { hasPractical: true, hasInternal: true, isMidTerm: false, isMonthly: false, rawMax: 70, convertedMax: 70, internalMax: 10, practicalMax: 20, finalMax: 100, passMark: 35 };
+        return { hasPractical: true, hasInternal: true, isMidTerm: false, isMonthly: false, isDirectDouble: false, rawMax: 70, convertedMax: 70, internalMax: 10, practicalMax: 20, finalMax: 100, passMark: 35 };
       }
-      return { hasPractical: false, hasInternal: true, isMidTerm: false, isMonthly: false, rawMax: 90, convertedMax: 90, internalMax: 10, practicalMax: 0, finalMax: 100, passMark: 35 };
+      return { hasPractical: false, hasInternal: true, isMidTerm: false, isMonthly: false, isDirectDouble: false, rawMax: 90, convertedMax: 90, internalMax: 10, practicalMax: 0, finalMax: 100, passMark: 35 };
     }
 
     /* ==========================================================================
@@ -2068,29 +2068,30 @@
        ========================================================================== */
     function getDefaultSubjectEntry(subjectName, examId) {
       const targetExamId = examId || state.selectedExamId;
-      if (isMonthlyDirectExam(targetExamId) || !state.autoFullDefault) {
+      const scheme = getSubjectScheme(subjectName, targetExamId);
+      if (scheme.isMonthly || !scheme.hasInternal || !state.autoFullDefault) {
         return { test: '', int: '', prac: '' };
       }
       return {
         test: '',
         int: '10',
-        prac: isPracticalSubject(subjectName) ? '20' : '',
+        prac: scheme.hasPractical ? '20' : '',
       };
     }
 
     function ensureStudentMarksArray(studentMarks, groupSubjects, examId) {
       const targetExamId = examId || state.selectedExamId;
-      const isMonthly = isMonthlyDirectExam(targetExamId);
       const arr = Array.isArray(studentMarks) ? studentMarks : [];
       const subjects = groupSubjects || GROUPS_CONFIG[state.selectedGroup].subjects;
       const result = [];
 
       for (let i = 0; i < 6; i++) {
         const subjName = subjects[i];
+        const scheme = getSubjectScheme(subjName, targetExamId);
         const item = arr[i];
         if (item && typeof item === 'object') {
           const testStr = item.test !== undefined ? String(item.test) : '';
-          if (isMonthly) {
+          if (scheme.isMonthly || !scheme.hasInternal) {
             result.push({ test: testStr, int: '', prac: '' });
             continue;
           }
@@ -2101,13 +2102,13 @@
 
           if (state.autoFullDefault && !isAbsent) {
             if (intStr === '') intStr = '10';
-            if (isPracticalSubject(subjName) && pracStr === '') pracStr = '20';
+            if (scheme.hasPractical && pracStr === '') pracStr = '20';
           }
 
           result.push({
             test: testStr,
             int: intStr,
-            prac: isPracticalSubject(subjName) ? pracStr : '',
+            prac: scheme.hasPractical ? pracStr : '',
           });
         } else {
           result.push(getDefaultSubjectEntry(subjName, targetExamId));
@@ -2134,7 +2135,7 @@
         };
       }
 
-      if (scheme.isMonthly) {
+      if (scheme.isMonthly || scheme.isDirectDouble) {
         if (rawTest === '') {
           return {
             hasData: false,
@@ -2147,15 +2148,16 @@
           };
         }
         const testNum = parseFloat(rawTest);
-        const validMark = !isNaN(testNum) ? testNum : 0;
+        const baseMark = !isNaN(testNum) ? testNum : 0;
+        const finalMark = scheme.isDirectDouble ? Math.round(baseMark * 2) : baseMark;
         return {
           hasData: true,
           isAbsent: false,
-          convertedTheory: validMark,
+          convertedTheory: finalMark,
           internalVal: 0,
           practicalVal: 0,
-          finalTotal: validMark,
-          isPass: validMark >= scheme.passMark,
+          finalTotal: finalMark,
+          isPass: finalMark >= scheme.passMark,
         };
       }
 
@@ -2372,13 +2374,19 @@
       roster.forEach(function (student) {
         const entries = ensureStudentMarksArray(examData.marks[student.id], groupCfg.subjects, state.selectedExamId);
         groupCfg.subjects.forEach(function (subj, idx) {
+          const scheme = getSubjectScheme(subj, state.selectedExamId);
+          if (!scheme.hasInternal) {
+            entries[idx].int = '';
+            entries[idx].prac = '';
+            return;
+          }
           const isAb = (entries[idx].test || '').trim().toUpperCase() === 'AB';
           if (isAb) {
             entries[idx].int = '0';
-            if (isPracticalSubject(subj)) entries[idx].prac = '0';
+            if (scheme.hasPractical) entries[idx].prac = '0';
           } else {
             entries[idx].int = '10';
-            if (isPracticalSubject(subj)) entries[idx].prac = '20';
+            if (scheme.hasPractical) entries[idx].prac = '20';
           }
         });
         examData.marks[student.id] = entries;
@@ -2386,7 +2394,7 @@
 
       saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, examData);
       renderAll();
-      showToast('Assigned full Internal (10) & Practical (20) marks to all present students.', 'success');
+      showToast('Assigned full Internal (10) & Practical (20) marks to eligible subjects.', 'success');
     }
 
     function openCreateExamModal() {
@@ -2615,7 +2623,7 @@
         }
       } else if (isMidTermExam(state.selectedExamId)) {
         if (ruleBadge) {
-          ruleBadge.textContent = 'Mid Term Rule: Lang/Maths Test/50 \u2192 90 + Int(10) | Science/CS Test/40 \u2192 70 + Int(10) + Prac(20)';
+          ruleBadge.textContent = 'Mid Term Rule: Lang/Maths Test/50 \u00d7 2 = 100 | Science/CS Test/40 \u2192 70 + Int(10) + Prac(20)';
         }
         if (passDisplay) {
           passDisplay.textContent = '35 / 100';
@@ -2683,23 +2691,28 @@
       groupCfg.subjects.forEach(function (subj, idx) {
         const scheme = getSubjectScheme(subj, state.selectedExamId);
         const shortName = groupCfg.shortSubjects[idx];
-        const colSpan = scheme.hasPractical ? 4 : 3;
+        const colSpan = scheme.isDirectDouble ? 2 : (scheme.hasPractical ? 4 : 3);
         const stripeClass = idx % 2 === 0 ? 'subj-group-even' : 'subj-group-odd';
 
         topRowHtml += '<th colspan="' + colSpan + '" class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium);">' +
           shortName + ' (100)' +
           '</th>';
 
-        const testLabel = midTerm
-          ? 'Test/' + scheme.rawMax + '&rarr;' + scheme.convertedMax
-          : 'Th/' + scheme.rawMax;
+        if (scheme.isDirectDouble) {
+          subRowHtml += '<th class="' + stripeClass + '">Test/50</th>';
+          subRowHtml += '<th class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium); font-weight:800;">Tot/100</th>';
+        } else {
+          const testLabel = midTerm
+            ? 'Test/' + scheme.rawMax + '&rarr;' + scheme.convertedMax
+            : 'Th/' + scheme.rawMax;
 
-        subRowHtml += '<th class="' + stripeClass + '">' + testLabel + '</th>';
-        subRowHtml += '<th class="' + stripeClass + '">Int/10</th>';
-        if (scheme.hasPractical) {
-          subRowHtml += '<th class="' + stripeClass + '">Prac/20</th>';
+          subRowHtml += '<th class="' + stripeClass + '">' + testLabel + '</th>';
+          subRowHtml += '<th class="' + stripeClass + '">Int/10</th>';
+          if (scheme.hasPractical) {
+            subRowHtml += '<th class="' + stripeClass + '">Prac/20</th>';
+          }
+          subRowHtml += '<th class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium); font-weight:800;">Tot</th>';
         }
-        subRowHtml += '<th class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium); font-weight:800;">Tot</th>';
       });
 
       topRowHtml += '<th rowspan="2" class="print-col-total" style="min-width:74px;">Total<br/>(600)</th>' +
@@ -2788,7 +2801,7 @@
           }
 
           const testColIdx = flatCol++;
-          const convHintHtml = (scheme.isMidTerm && !calc.isAbsent && (entry.test || '').trim() !== '')
+          const convHintHtml = (!scheme.isDirectDouble && scheme.isMidTerm && !calc.isAbsent && (entry.test || '').trim() !== '')
             ? '<span class="conv-hint" data-conv-for="' + student.id + '-' + subjIdx + '">&rarr;' + calc.convertedTheory + '</span>'
             : '<span class="conv-hint" data-conv-for="' + student.id + '-' + subjIdx + '"></span>';
 
@@ -2801,14 +2814,16 @@
             convHintHtml +
           '</td>';
 
-          const intColIdx = flatCol++;
-          rowCells += '<td class="' + stripeClass + '" style="text-align:center;">' +
-            '<input type="text" inputmode="decimal" maxlength="4" ' +
-              'class="' + getMarkInputClass(entry.int, 10, false, true) + '" ' +
-              'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="int" ' +
-              'data-row="' + rowIdx + '" data-col="' + intColIdx + '" data-max="10" ' +
-              'value="' + escapeHtml(entry.int) + '" placeholder="10" />' +
-          '</td>';
+          if (scheme.hasInternal) {
+            const intColIdx = flatCol++;
+            rowCells += '<td class="' + stripeClass + '" style="text-align:center;">' +
+              '<input type="text" inputmode="decimal" maxlength="4" ' +
+                'class="' + getMarkInputClass(entry.int, 10, false, true) + '" ' +
+                'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="int" ' +
+                'data-row="' + rowIdx + '" data-col="' + intColIdx + '" data-max="10" ' +
+                'value="' + escapeHtml(entry.int) + '" placeholder="10" />' +
+            '</td>';
+          }
 
           if (scheme.hasPractical) {
             const pracColIdx = flatCol++;
@@ -2936,7 +2951,7 @@
 
       const groupCfg = GROUPS_CONFIG[state.selectedGroup];
       const subjectName = groupCfg.subjects[subjIdx];
-      const hasPrac = isPracticalSubject(subjectName);
+      const scheme = getSubjectScheme(subjectName, state.selectedExamId);
       const isMonthly = isMonthlyDirectExam(state.selectedExamId);
 
       const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
@@ -2945,14 +2960,14 @@
 
       studentEntries[subjIdx][field] = cleanVal;
 
-      if (field === 'test' && !isMonthly) {
+      if (field === 'test' && scheme.hasInternal) {
         const nowAbsent = cleanVal === 'AB';
         if (nowAbsent) {
           studentEntries[subjIdx].int = '0';
-          if (hasPrac) studentEntries[subjIdx].prac = '0';
+          if (scheme.hasPractical) studentEntries[subjIdx].prac = '0';
         } else if (prevTest === 'AB' && state.autoFullDefault) {
           studentEntries[subjIdx].int = '10';
-          if (hasPrac) studentEntries[subjIdx].prac = '20';
+          if (scheme.hasPractical) studentEntries[subjIdx].prac = '20';
         }
       }
 
@@ -2962,13 +2977,13 @@
       inputEl.className = getMarkInputClass(cleanVal, maxAllowed, allowAbsent, field !== 'test');
 
       const tr = inputEl.closest('tr');
-      if (tr && field === 'test' && !isMonthly) {
+      if (tr && field === 'test' && scheme.hasInternal) {
         const intInput = tr.querySelector('input.mark-input[data-subj-idx="' + subjIdx + '"][data-field="int"]');
         if (intInput) {
           intInput.value = studentEntries[subjIdx].int;
           intInput.className = getMarkInputClass(studentEntries[subjIdx].int, 10, false, true);
         }
-        if (hasPrac) {
+        if (scheme.hasPractical) {
           const pracInput = tr.querySelector('input.mark-input[data-subj-idx="' + subjIdx + '"][data-field="prac"]');
           if (pracInput) {
             pracInput.value = studentEntries[subjIdx].prac;
@@ -2979,7 +2994,6 @@
 
       const evalRes = evaluateStudent(studentEntries, groupCfg.subjects, state.selectedExamId);
       const calc = evalRes.subjectResults[subjIdx];
-      const scheme = getSubjectScheme(subjectName, state.selectedExamId);
 
       if (isMonthly) {
         const tdCell = inputEl.closest('td');
@@ -2989,7 +3003,7 @@
       } else {
         const convSpan = document.querySelector('[data-conv-for="' + studentId + '-' + subjIdx + '"]');
         if (convSpan) {
-          convSpan.innerHTML = (scheme.isMidTerm && !calc.isAbsent && (studentEntries[subjIdx].test || '').trim() !== '')
+          convSpan.innerHTML = (!scheme.isDirectDouble && scheme.isMidTerm && !calc.isAbsent && (studentEntries[subjIdx].test || '').trim() !== '')
             ? '&rarr;' + calc.convertedTheory
             : '';
         }
@@ -3068,6 +3082,9 @@
         const scheme = getSubjectScheme(subj, state.selectedExamId);
         if (scheme.isMonthly) {
           headers.push(subj + ' (' + scheme.rawMax + ')');
+        } else if (scheme.isDirectDouble) {
+          headers.push(subj + ' Test/50');
+          headers.push(subj + ' Total/100');
         } else {
           headers.push(subj + ' Test/' + scheme.rawMax);
           if (scheme.isMidTerm) headers.push(subj + ' Conv/' + scheme.convertedMax);
@@ -3095,6 +3112,9 @@
 
           if (scheme.isMonthly) {
             row.push(entry.test || '');
+          } else if (scheme.isDirectDouble) {
+            row.push(entry.test || '');
+            row.push(calc.hasData ? (calc.isAbsent ? 'AB' : calc.finalTotal) : '');
           } else {
             row.push(entry.test || '');
             if (scheme.isMidTerm) {
@@ -3320,6 +3340,13 @@
             const endCol = colCursor;
             colCursor++;
             subjectSpans.push({ subject: subj, scheme: scheme, startCol: startCol, endCol: endCol });
+          } else if (scheme.isDirectDouble) {
+            colWidths.push({ min: colCursor, max: colCursor, width: 9.5 });
+            colCursor++;
+            colWidths.push({ min: colCursor, max: colCursor, width: 10 });
+            const endCol = colCursor;
+            colCursor++;
+            subjectSpans.push({ subject: subj, scheme: scheme, startCol: startCol, endCol: endCol });
           } else {
             colWidths.push({ min: colCursor, max: colCursor, width: 9 });
             colCursor++;
@@ -3398,6 +3425,9 @@
           let sc = sp.startCol;
           if (sp.scheme.isMonthly) {
             r5Cells += xlsxInlineStrCell(sc++, 5, 'Marks/' + sp.scheme.rawMax, 5);
+          } else if (sp.scheme.isDirectDouble) {
+            r5Cells += xlsxInlineStrCell(sc++, 5, 'Test/50', 5);
+            r5Cells += xlsxInlineStrCell(sc++, 5, 'Tot/100', 5);
           } else {
             r5Cells += xlsxInlineStrCell(sc++, 5, (sp.scheme.isMidTerm ? 'Test/' : 'Th/') + sp.scheme.rawMax, 5);
             if (sp.scheme.isMidTerm) {
@@ -3438,6 +3468,19 @@
             const calc = evalRes.subjectResults[sIdx];
 
             if (scheme.isMonthly) {
+              if (!calc.hasData) {
+                rowCells += xlsxInlineStrCell(cPtr++, rNum, '—', 8);
+              } else if (calc.isAbsent) {
+                rowCells += xlsxInlineStrCell(cPtr++, rNum, 'AB', 9);
+              } else {
+                const totStyle = calc.isPass === false ? 9 : 8;
+                rowCells += xlsxNumberCell(cPtr++, rNum, calc.finalTotal, totStyle);
+              }
+              return;
+            }
+
+            if (scheme.isDirectDouble) {
+              rowCells += xlsxAutoCell(cPtr++, rNum, entry.test, 6);
               if (!calc.hasData) {
                 rowCells += xlsxInlineStrCell(cPtr++, rNum, '—', 8);
               } else if (calc.isAbsent) {
@@ -4132,13 +4175,15 @@
           if ((entry.test || '').trim() !== '') {
             if (calc.isAbsent) {
               theoryDisp = 'AB';
+            } else if (scheme.isDirectDouble) {
+              theoryDisp = entry.test + '/50 (\u00d72)';
             } else if (isMidTerm) {
               theoryDisp = entry.test + '/' + scheme.rawMax + ' &rarr; ' + calc.convertedTheory;
             } else {
               theoryDisp = entry.test + '/' + scheme.rawMax;
             }
           }
-          const intDisp = calc.isAbsent ? '0' : (entry.int || '—');
+          const intDisp = scheme.hasInternal ? (calc.isAbsent ? '0' : (entry.int || '—')) : 'N/A';
           const pracDisp = scheme.hasPractical ? (calc.isAbsent ? '0' : (entry.prac || '—')) : 'N/A';
           const totDisp = !calc.hasData ? '—' : (calc.isAbsent ? 'AB' : calc.finalTotal);
 
