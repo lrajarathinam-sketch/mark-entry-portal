@@ -546,6 +546,7 @@
       padding: 6px 5px;
       text-align: center;
       vertical-align: middle;
+      font-variant-numeric: tabular-nums;
     }
 
     table.marks-table thead th {
@@ -644,17 +645,87 @@
 
     .mark-input {
       width: 42px;
-      padding: 5px 2px;
+      height: 27px;
+      line-height: 25px;
+      padding: 0 2px;
       text-align: center;
+      vertical-align: middle;
       font-family: inherit;
       font-size: 0.8rem;
       font-weight: 700;
+      font-variant-numeric: tabular-nums;
       color: var(--text-primary);
       background: #ffffff;
       border: 1px solid var(--border-medium);
       border-radius: 5px;
       outline: none;
       transition: all 0.12s ease;
+    }
+
+    .mark-input:focus {
+      border-color: var(--indigo-600);
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.16);
+    }
+
+    .mark-input.sub-field {
+      width: 36px;
+      font-weight: 600;
+      color: #334155;
+      background: #f8fafc;
+    }
+
+    .mark-input.absent {
+      background: var(--rose-50);
+      color: var(--rose-700);
+      border-color: var(--rose-200);
+    }
+
+    .mark-input.invalid {
+      background: #fef2f2;
+      color: #dc2626;
+      border-color: #ef4444;
+    }
+
+    .test-cell-inner {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      vertical-align: middle;
+    }
+
+    .conv-hint {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--indigo-600);
+      line-height: 1;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .conv-hint:empty {
+      display: none;
+    }
+
+    .subj-total-cell {
+      font-weight: 800;
+      font-size: 0.82rem;
+      min-width: 42px;
+      vertical-align: middle;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .subj-total-cell.pass { color: var(--text-primary); }
+    .subj-total-cell.fail { color: var(--rose-700); background-color: var(--rose-50); }
+    .subj-total-cell.muted { color: var(--text-muted); font-weight: 500; }
+
+    .summary-cell {
+      font-weight: 800;
+      font-size: 0.82rem;
+      background: #ffffff;
+      vertical-align: middle;
+      font-variant-numeric: tabular-nums;
     }
 
     .mark-input:focus {
@@ -1134,9 +1205,12 @@
         z-index: auto !important;
         box-shadow: none !important;
         border: 1px solid #64748b !important;
-        padding: 2.5px 1.5px !important;
+        padding: 3px 1.5px !important;
         font-size: 7pt !important;
-        line-height: 1.15 !important;
+        line-height: 1.2 !important;
+        vertical-align: middle !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums !important;
         color: #000000 !important;
         overflow: hidden !important;
       }
@@ -1155,29 +1229,57 @@
       }
 
       .sticky-col-sno { width: 2.4% !important; min-width: 0 !important; }
-      .sticky-col-roll { width: 5.4% !important; min-width: 0 !important; }
-      .sticky-col-name { width: 11.7% !important; min-width: 0 !important; max-width: none !important; text-align: left !important; white-space: normal !important; word-break: break-word !important; }
+      .sticky-col-roll { width: 5.0% !important; min-width: 0 !important; }
+      .sticky-col-name { width: 11.6% !important; min-width: 0 !important; max-width: none !important; text-align: left !important; padding-left: 3px !important; white-space: normal !important; word-break: break-word !important; }
       .print-col-total { width: 4.5% !important; min-width: 0 !important; }
       .print-col-pct { width: 4.0% !important; min-width: 0 !important; }
       .print-col-res { width: 4.5% !important; min-width: 0 !important; }
-      .subj-total-cell { min-width: 0 !important; font-size: 7pt !important; }
-      .summary-cell { padding: 2px 1px !important; font-size: 7pt !important; }
+      .subj-total-cell { min-width: 0 !important; font-size: 7pt !important; line-height: 1.2 !important; vertical-align: middle !important; }
+      .summary-cell { padding: 3px 1.5px !important; font-size: 7pt !important; line-height: 1.2 !important; vertical-align: middle !important; }
+
+      .test-cell-inner {
+        display: inline-flex !important;
+        align-items: baseline !important;
+        justify-content: center !important;
+        gap: 1.5px !important;
+        width: 100% !important;
+        line-height: 1.2 !important;
+        vertical-align: middle !important;
+      }
 
       .mark-input, .meta-input {
         border: none !important;
         background: transparent !important;
         box-shadow: none !important;
         padding: 0 !important;
+        margin: 0 !important;
+        height: auto !important;
+        line-height: 1.2 !important;
+        vertical-align: middle !important;
         width: 100% !important;
         max-width: 100% !important;
         font-size: 7pt !important;
         font-weight: 700 !important;
+        font-variant-numeric: tabular-nums !important;
         color: #000000 !important;
       }
 
+      .test-cell-inner .mark-input {
+        width: auto !important;
+        min-width: 14px !important;
+      }
+
       .meta-input { text-align: left !important; }
-      .conv-hint { font-size: 5.6pt !important; line-height: 1 !important; margin-top: 1px !important; color: #334155 !important; }
-      .status-badge { border: 1px solid #334155 !important; background: transparent !important; color: #000000 !important; padding: 1px 3px !important; font-size: 6pt !important; }
+      .conv-hint {
+        display: inline-block !important;
+        font-size: 5.5pt !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+        vertical-align: baseline !important;
+        color: #334155 !important;
+      }
+      .conv-hint:empty { display: none !important; }
+      .status-badge { display: inline-block !important; vertical-align: middle !important; line-height: 1.1 !important; border: 1px solid #334155 !important; background: transparent !important; color: #000000 !important; padding: 1px 3px !important; font-size: 6pt !important; }
 
       /* Individual Student Progress Cards Mode (Strictly 2 Per A4 Portrait Sheet) */
       body.print-mode-cards {
@@ -1492,7 +1594,8 @@
             <option value="A" selected>Group A (Tamil, English, Maths, Physics, Chemistry, Biology) - English Medium</option>
             <option value="A1">Group A1 (Tamil, English, Physics, Chemistry, Botany, Zoology) - Tamil Medium</option>
             <option value="A2">Group A2 (Tamil, English, Maths, Physics, Chemistry, Computer Science) - English Medium</option>
-            <option value="B">Group B (Tamil, English, Commerce, Accountancy, Economics, Computer Applications) - Tamil Medium</option>
+            <option value="B">Group B (Tamil, English, Physics, Chemistry, Computer Science, Biology) - Tamil Medium</option>
+            <option value="C">Group C (Tamil, English, Commerce, Accountancy, Economics, Computer Applications) - Tamil Medium</option>
           </select>
         </div>
       </div>
@@ -1864,7 +1967,15 @@
         code: 'B',
         medium: 'Tamil Medium',
         label: 'Group B (Tamil Medium)',
-        fullLabel: 'Group B (Tamil, English, Commerce, Accountancy, Economics, Computer Applications) - Tamil Medium',
+        fullLabel: 'Group B (Tamil, English, Physics, Chemistry, Computer Science, Biology) - Tamil Medium',
+        subjects: ['Tamil', 'English', 'Physics', 'Chemistry', 'Computer Science', 'Biology'],
+        shortSubjects: ['Tamil', 'English', 'Physics', 'Chemistry', 'Comp. Sci', 'Biology'],
+      },
+      C: {
+        code: 'C',
+        medium: 'Tamil Medium',
+        label: 'Group C (Tamil Medium)',
+        fullLabel: 'Group C (Tamil, English, Commerce, Accountancy, Economics, Computer Applications) - Tamil Medium',
         subjects: ['Tamil', 'English', 'Commerce', 'Accountancy', 'Economics', 'Computer Applications'],
         shortSubjects: ['Tamil', 'English', 'Commerce', 'Accountancy', 'Economics', 'Comp. App'],
       },
@@ -2524,13 +2635,64 @@
       );
     }
 
+    function migrateLegacyGroupBMarks() {
+      const migrationFlagKey = 'gghss_valasaiyur_groupB_sci_migrated_v1';
+      if (safeGetStorage(migrationFlagKey) === 'true') return;
+
+      ['XI', 'XII'].forEach(function (cls) {
+        const roster = loadRoster(cls, 'B');
+        if (roster.length === 0) return;
+
+        getExamsForClass(cls).forEach(function (ex) {
+          const examData = loadExamData(cls, ex.id, 'B');
+          if (!examData || !examData.marks) return;
+
+          let modified = false;
+          roster.forEach(function (st) {
+            const arr = examData.marks[st.id];
+            if (Array.isArray(arr) && arr.length >= 6) {
+              // Indices 0 (Tamil) and 1 (English) stay completely untouched.
+              // Indices 2, 3, 4 (previously Commerce/Accountancy/Economics with empty prac)
+              // gain Practical (20) default for Physics, Chemistry, Computer Science.
+              for (let idx = 2; idx <= 4; idx++) {
+                if (arr[idx] && typeof arr[idx] === 'object') {
+                  const tVal = String(arr[idx].test || '').trim().toUpperCase();
+                  if (!isMonthlyDirectExam(ex.id) && tVal !== 'AB' && (arr[idx].prac === undefined || arr[idx].prac === '')) {
+                    arr[idx].prac = state.autoFullDefault ? '20' : '';
+                    if (arr[idx].int === undefined || arr[idx].int === '') {
+                      arr[idx].int = state.autoFullDefault ? '10' : '';
+                    }
+                    modified = true;
+                  }
+                }
+              }
+            }
+          });
+
+          if (modified) {
+            safeSetStorage(getExamStorageKey(cls, ex.id, 'B'), JSON.stringify(examData));
+          }
+        });
+      });
+
+      safeSetStorage(migrationFlagKey, 'true');
+    }
+
     function promptClearExamMarks() {
       const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
       openConfirmModal(
         'Clear Exam Marks',
-        'Clear all marks entered for ' + currentExam.name + ' (Class ' + state.selectedClass + ' Group ' + state.selectedGroup + ')? Student names will remain intact.',
+        'Clear all marks entered for ' + currentExam.name + ' (Class ' + state.selectedClass + ' Group ' + state.selectedGroup + ')? Student names and roll numbers will be kept.',
         function () {
-          saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, { marks: {} });
+          const roster = loadRoster(state.selectedClass, state.selectedGroup);
+          const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+          const freshMarks = {};
+          if (state.autoFullDefault && !isMonthlyDirectExam(state.selectedExamId)) {
+            roster.forEach(function (st) {
+              freshMarks[st.id] = ensureStudentMarksArray(null, groupCfg.subjects, state.selectedExamId);
+            });
+          }
+          saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, { marks: freshMarks });
           renderAll();
           showToast('Cleared marks for ' + currentExam.name + '.', 'info');
         }
@@ -2806,12 +2968,14 @@
             : '<span class="conv-hint" data-conv-for="' + student.id + '-' + subjIdx + '"></span>';
 
           rowCells += '<td class="' + stripeClass + '" style="text-align:center;">' +
-            '<input type="text" inputmode="decimal" maxlength="4" ' +
-              'class="' + getMarkInputClass(entry.test, scheme.rawMax, true, false) + '" ' +
-              'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="test" ' +
-              'data-row="' + rowIdx + '" data-col="' + testColIdx + '" data-max="' + scheme.rawMax + '" ' +
-              'value="' + escapeHtml(entry.test) + '" placeholder="-" />' +
-            convHintHtml +
+            '<span class="test-cell-inner">' +
+              '<input type="text" inputmode="decimal" maxlength="4" ' +
+                'class="' + getMarkInputClass(entry.test, scheme.rawMax, true, false) + '" ' +
+                'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="test" ' +
+                'data-row="' + rowIdx + '" data-col="' + testColIdx + '" data-max="' + scheme.rawMax + '" ' +
+                'value="' + escapeHtml(entry.test) + '" placeholder="-" />' +
+              convHintHtml +
+            '</span>' +
           '</td>';
 
           if (scheme.hasInternal) {
@@ -3945,7 +4109,7 @@
 
     function buildFullDatabaseSnapshot() {
       const classes = ['XI', 'XII'];
-      const groups = ['A', 'A1', 'A2', 'B'];
+      const groups = ['A', 'A1', 'A2', 'B', 'C'];
       const allExams = getExamsForClass('XI');
 
       const snapshot = {
@@ -4360,6 +4524,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      migrateLegacyGroupBMarks();
       const autoSyncChk = document.getElementById('chk-drive-autosync');
       if (autoSyncChk) autoSyncChk.checked = driveState.autoSync;
 
