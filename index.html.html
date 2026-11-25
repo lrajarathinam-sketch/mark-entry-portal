@@ -1,0 +1,4378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Higher Secondary Mark Entry Portal — GGHSS Valasaiyur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    :root {
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-subtle: #f8fafc;
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --indigo-50: #eef2ff;
+      --indigo-100: #e0e7ff;
+      --indigo-200: #c7d2fe;
+      --indigo-600: #4f46e5;
+      --indigo-700: #4338ca;
+      --emerald-50: #ecfdf5;
+      --emerald-200: #a7f3d0;
+      --emerald-600: #059669;
+      --emerald-700: #047857;
+      --rose-50: #fff1f2;
+      --rose-200: #fecdd3;
+      --rose-600: #e11d48;
+      --rose-700: #be123c;
+      --amber-50: #fffbeb;
+      --amber-300: #fcd34d;
+      --amber-800: #92400e;
+      --teal-600: #0d9488;
+      --teal-700: #0f766e;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-size: 14px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .app-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .header-inner {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-subtitle {
+      margin: 1px 0 0 0;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 13px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 0.76rem;
+    }
+
+    .btn-primary {
+      background: var(--indigo-600);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--indigo-700);
+    }
+
+    .btn-emerald {
+      background: var(--emerald-600);
+      color: #ffffff;
+    }
+    .btn-emerald:hover {
+      background: var(--emerald-700);
+    }
+
+    .btn-teal {
+      background: #ffffff;
+      color: var(--teal-700);
+      border-color: #99f6e4;
+      background-color: #f0fdfa;
+    }
+    .btn-teal:hover {
+      background-color: #ccfbf1;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--text-primary);
+      border-color: var(--border-medium);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+    }
+
+    .btn-danger {
+      background: var(--rose-50);
+      color: var(--rose-700);
+      border-color: var(--rose-200);
+    }
+    .btn-danger:hover {
+      background: #ffe4e6;
+    }
+
+    .btn-amber {
+      background: var(--amber-50);
+      color: var(--amber-800);
+      border-color: var(--amber-300);
+    }
+    .btn-amber:hover {
+      background: #fef3c7;
+    }
+
+    .btn-icon-square {
+      padding: 8px 10px;
+      flex-shrink: 0;
+    }
+
+    /* Google Drive Sync Bar */
+    .drive-sync-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .drive-bar-inner {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 8px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .drive-status-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .drive-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .drive-pill.connected {
+      background: var(--emerald-50);
+      color: var(--emerald-700);
+      border: 1px solid var(--emerald-200);
+    }
+
+    .drive-pill.syncing {
+      background: var(--indigo-50);
+      color: var(--indigo-700);
+      border: 1px solid var(--indigo-200);
+    }
+
+    .drive-pill.error {
+      background: var(--rose-50);
+      color: var(--rose-700);
+      border: 1px solid var(--rose-200);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .drive-file-hint {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .drive-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .autosync-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      padding: 5px 9px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+    }
+
+    /* Main Container */
+    .main-workspace {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 16px 20px 36px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Control Panel */
+    .control-panel {
+      padding: 16px 20px;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: 150px 340px 1fr;
+      gap: 16px;
+      align-items: end;
+    }
+
+    @media (max-width: 1024px) {
+      .control-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .control-group-col {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .control-grid {
+        grid-template-columns: 1fr;
+      }
+      .control-group-col {
+        grid-column: span 1;
+      }
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .form-select, .form-input, .form-textarea {
+      width: 100%;
+      padding: 8px 11px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-select:focus, .form-input:focus, .form-textarea:focus {
+      border-color: var(--indigo-600);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+
+    .exam-select-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exam-select-row .form-select {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .context-strip {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.77rem;
+    }
+
+    .context-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-indigo {
+      background: var(--indigo-50);
+      color: var(--indigo-700);
+      border: 1px solid var(--indigo-200);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .badge-amber {
+      background: var(--amber-50);
+      color: var(--amber-800);
+      border: 1px solid var(--amber-300);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .kbd-tag {
+      display: inline-block;
+      padding: 1px 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      color: #0f172a;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stat-card {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .stat-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin: 0 0 4px 0;
+    }
+
+    .stat-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin: 0;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .stat-value.indigo { color: var(--indigo-600); }
+    .stat-value.emerald { color: var(--emerald-600); }
+    .stat-value.top-name { font-size: 1rem; }
+
+    .stat-sub {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin: 3px 0 0 0;
+      font-weight: 500;
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Table Section */
+    .table-card {
+      overflow: hidden;
+    }
+
+    .table-toolbar {
+      padding: 12px 16px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .toolbar-left, .toolbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .autosave-indicator {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--emerald-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-right: 4px;
+    }
+
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    table.marks-table {
+      width: 100%;
+      min-width: 1240px;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.8rem;
+    }
+
+    table.marks-table th,
+    table.marks-table td {
+      border-bottom: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      padding: 6px 5px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    table.marks-table thead th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.76rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    table.marks-table thead tr.sub-header th {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 4px 4px;
+    }
+
+    .subj-group-even {
+      background-color: #ffffff;
+    }
+    .subj-group-odd {
+      background-color: #f8fafc;
+    }
+    thead .subj-group-even {
+      background-color: #f1f5f9;
+    }
+    thead .subj-group-odd {
+      background-color: #e2e8f0;
+    }
+
+    /* Sticky Left Columns */
+    .sticky-col-sno {
+      position: sticky;
+      left: 0;
+      z-index: 15;
+      background: #ffffff;
+      width: 44px;
+      min-width: 44px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .sticky-col-roll {
+      position: sticky;
+      left: 44px;
+      z-index: 15;
+      background: #ffffff;
+      width: 86px;
+      min-width: 86px;
+    }
+
+    .sticky-col-name {
+      position: sticky;
+      left: 130px;
+      z-index: 15;
+      background: #ffffff;
+      width: 190px;
+      min-width: 190px;
+      text-align: left !important;
+      box-shadow: 2px 0 5px rgba(15, 23, 42, 0.04);
+    }
+
+    thead .sticky-col-sno,
+    thead .sticky-col-roll,
+    thead .sticky-col-name {
+      z-index: 25;
+      background: #f1f5f9;
+    }
+
+    /* Inputs inside table */
+    .meta-input {
+      width: 100%;
+      padding: 5px 7px;
+      font-family: inherit;
+      font-size: 0.79rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .meta-input:hover {
+      border-color: var(--border-medium);
+      background: #ffffff;
+    }
+
+    .meta-input:focus {
+      border-color: var(--indigo-600);
+      background: #ffffff;
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.14);
+    }
+
+    .mark-input {
+      width: 42px;
+      padding: 5px 2px;
+      text-align: center;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      background: #ffffff;
+      border: 1px solid var(--border-medium);
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.12s ease;
+    }
+
+    .mark-input:focus {
+      border-color: var(--indigo-600);
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.16);
+    }
+
+    .mark-input.sub-field {
+      width: 36px;
+      font-weight: 600;
+      color: #334155;
+      background: #f8fafc;
+    }
+
+    .mark-input.absent {
+      background: var(--rose-50);
+      color: var(--rose-700);
+      border-color: var(--rose-200);
+    }
+
+    .mark-input.invalid {
+      background: #fef2f2;
+      color: #dc2626;
+      border-color: #ef4444;
+    }
+
+    .conv-hint {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--indigo-600);
+      line-height: 1.1;
+      margin-top: 2px;
+      min-height: 11px;
+    }
+
+    .subj-total-cell {
+      font-weight: 800;
+      font-size: 0.82rem;
+      min-width: 42px;
+    }
+
+    .subj-total-cell.pass { color: var(--text-primary); }
+    .subj-total-cell.fail { color: var(--rose-700); background-color: var(--rose-50); }
+    .subj-total-cell.muted { color: var(--text-muted); font-weight: 500; }
+
+    .summary-cell {
+      font-weight: 800;
+      font-size: 0.82rem;
+      background: #ffffff;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.69rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .status-badge.pass {
+      background: var(--emerald-50);
+      color: var(--emerald-700);
+      border: 1px solid var(--emerald-200);
+    }
+
+    .status-badge.fail {
+      background: var(--rose-50);
+      color: var(--rose-700);
+      border: 1px solid var(--rose-200);
+    }
+
+    .status-badge.incomplete {
+      background: var(--amber-50);
+      color: var(--amber-800);
+      border: 1px solid var(--amber-300);
+    }
+
+    .status-badge.pending {
+      background: #f1f5f9;
+      color: var(--text-muted);
+    }
+
+    .row-del-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .row-del-btn:hover {
+      background: var(--rose-50);
+      color: var(--rose-600);
+    }
+
+    /* Empty State */
+    .empty-state {
+      padding: 44px 20px;
+      text-align: center;
+    }
+
+    .empty-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px auto;
+      border-radius: 12px;
+      background: var(--indigo-50);
+      color: var(--indigo-600);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .empty-state h3 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .empty-state p {
+      margin: 0 auto 16px auto;
+      max-width: 460px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.2);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+
+    .modal-box.wide {
+      max-width: 560px;
+    }
+
+    .modal-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      display: flex;
+    }
+
+    .modal-close:hover {
+      background: #f1f5f9;
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      padding-top: 6px;
+    }
+
+    .origin-alert {
+      background: var(--amber-50);
+      border: 1px solid var(--amber-300);
+      color: var(--amber-800);
+      border-radius: var(--radius-md);
+      padding: 9px 12px;
+      font-size: 0.76rem;
+      font-weight: 600;
+    }
+
+    .radio-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .radio-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      background: var(--bg-subtle);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .radio-card:hover {
+      background: #ffffff;
+      border-color: var(--indigo-600);
+    }
+
+    .radio-card input[type="radio"] {
+      margin-top: 3px;
+      accent-color: var(--indigo-600);
+    }
+
+    .radio-card-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: block;
+    }
+
+    .radio-card-desc {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .student-select-checklist {
+      max-height: 230px;
+      overflow-y: auto;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      background: var(--bg-subtle);
+      padding: 6px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+
+    @media (max-width: 520px) {
+      .student-select-checklist {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .student-check-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 8px;
+      border-radius: 5px;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .student-check-item input[type="checkbox"] {
+      accent-color: var(--indigo-600);
+      margin: 0;
+    }
+
+    /* Toast Notifications */
+    .toast-container {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.25);
+      max-width: 360px;
+      animation: slideUp 0.2s ease;
+    }
+
+    .toast.success { background: #065f46; }
+    .toast.error { background: #9f1239; }
+    .toast.info { background: #1e3a8a; }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden { display: none !important; }
+    .print-only { display: none; }
+    #individual-cards-print-container { display: none; }
+
+    /* Print Styles */
+    @media print {
+      html, body {
+        width: 100% !important;
+        min-height: 194mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .no-print,
+      .app-header.no-print,
+      .drive-sync-bar.no-print,
+      .control-panel.no-print,
+      .stats-grid.no-print,
+      .table-toolbar.no-print,
+      .empty-state,
+      .modal-backdrop,
+      .toast-container,
+      .toast {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+
+      .main-workspace {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 194mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 1 auto !important;
+        overflow: visible !important;
+      }
+
+      .card,
+      .table-card,
+      .table-scroll {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+
+      .print-signature-footer {
+        display: flex !important;
+        position: static !important;
+        width: 100% !important;
+        margin-top: auto !important;
+        padding: 20px 10mm 2mm 10mm !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+        font-size: 9pt !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .print-sig-line {
+        border-top: 1px solid #334155;
+        padding-top: 4px;
+        min-width: 195px;
+        text-align: center;
+      }
+
+      .print-header-box {
+        border-bottom: 1.5px solid #1e293b;
+        padding-bottom: 4px;
+        margin-bottom: 6px;
+        text-align: center;
+      }
+
+      .print-header-box h1 {
+        margin: 0;
+        font-size: 12pt;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      .print-header-box p {
+        margin: 2px 0 0 0;
+        font-size: 8.5pt;
+        font-weight: 600;
+      }
+
+      .print-summary-bar {
+        display: flex;
+        justify-content: space-between;
+        font-size: 8pt;
+        font-weight: 600;
+        margin-top: 4px;
+        padding-top: 4px;
+        border-top: 1px solid #64748b;
+      }
+
+      table.marks-table {
+        width: 100% !important;
+        min-width: 0 !important;
+        table-layout: fixed !important;
+        border-collapse: collapse !important;
+        font-size: 7pt !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+
+      table.marks-table thead {
+        display: table-header-group;
+      }
+
+      table.marks-table tbody tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      table.marks-table th,
+      table.marks-table td {
+        position: static !important;
+        left: auto !important;
+        z-index: auto !important;
+        box-shadow: none !important;
+        border: 1px solid #64748b !important;
+        padding: 2.5px 1.5px !important;
+        font-size: 7pt !important;
+        line-height: 1.15 !important;
+        color: #000000 !important;
+        overflow: hidden !important;
+      }
+
+      table.marks-table thead th {
+        font-size: 6.5pt !important;
+        padding: 3px 1px !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        background: #f1f5f9 !important;
+      }
+
+      table.marks-table thead tr.sub-header th {
+        font-size: 6pt !important;
+        padding: 2px 1px !important;
+      }
+
+      .sticky-col-sno { width: 2.4% !important; min-width: 0 !important; }
+      .sticky-col-roll { width: 5.4% !important; min-width: 0 !important; }
+      .sticky-col-name { width: 11.7% !important; min-width: 0 !important; max-width: none !important; text-align: left !important; white-space: normal !important; word-break: break-word !important; }
+      .print-col-total { width: 4.5% !important; min-width: 0 !important; }
+      .print-col-pct { width: 4.0% !important; min-width: 0 !important; }
+      .print-col-res { width: 4.5% !important; min-width: 0 !important; }
+      .subj-total-cell { min-width: 0 !important; font-size: 7pt !important; }
+      .summary-cell { padding: 2px 1px !important; font-size: 7pt !important; }
+
+      .mark-input, .meta-input {
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 7pt !important;
+        font-weight: 700 !important;
+        color: #000000 !important;
+      }
+
+      .meta-input { text-align: left !important; }
+      .conv-hint { font-size: 5.6pt !important; line-height: 1 !important; margin-top: 1px !important; color: #334155 !important; }
+      .status-badge { border: 1px solid #334155 !important; background: transparent !important; color: #000000 !important; padding: 1px 3px !important; font-size: 6pt !important; }
+
+      /* Individual Student Progress Cards Mode (Strictly 2 Per A4 Portrait Sheet) */
+      body.print-mode-cards {
+        display: block !important;
+        min-height: 0 !important;
+      }
+      body.print-mode-cards .main-workspace {
+        display: none !important;
+      }
+      body.print-mode-cards #individual-cards-print-container {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .a4-card-sheet {
+        width: 100% !important;
+        height: 281mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        box-sizing: border-box !important;
+      }
+      .a4-card-sheet:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+      .student-progress-card {
+        width: 100% !important;
+        height: 136mm !important;
+        border: 1.5px solid #0f172a !important;
+        border-radius: 6px !important;
+        padding: 4.5mm 6mm !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .card-cut-divider {
+        width: 100% !important;
+        border-top: 1px dashed #64748b !important;
+        text-align: center !important;
+        line-height: 0 !important;
+        margin: 1mm 0 !important;
+      }
+      .card-cut-divider span {
+        background: #ffffff !important;
+        padding: 0 8px !important;
+        font-size: 7pt !important;
+        color: #475569 !important;
+        letter-spacing: 0.08em !important;
+      }
+      .spc-header {
+        text-align: center !important;
+        border-bottom: 1.5px solid #0f172a !important;
+        padding-bottom: 2.5mm !important;
+      }
+      .spc-school-name {
+        margin: 0 !important;
+        font-size: 11pt !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.02em !important;
+        color: #000000 !important;
+      }
+      .spc-school-sub {
+        margin: 1px 0 0 0 !important;
+        font-size: 7.5pt !important;
+        font-weight: 700 !important;
+        color: #334155 !important;
+        letter-spacing: 0.04em !important;
+      }
+      .spc-meta-grid {
+        display: grid !important;
+        grid-template-columns: 1.35fr 0.85fr 1fr !important;
+        gap: 2px 10px !important;
+        background: #f8fafc !important;
+        border: 1px solid #94a3b8 !important;
+        border-radius: 4px !important;
+        padding: 2mm 3mm !important;
+        font-size: 8pt !important;
+        margin-top: 2mm !important;
+      }
+      .spc-meta-item {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .spc-meta-label {
+        font-weight: 600 !important;
+        color: #334155 !important;
+      }
+      .spc-meta-val {
+        font-weight: 800 !important;
+        color: #000000 !important;
+      }
+      table.spc-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-top: 2mm !important;
+        font-size: 8pt !important;
+      }
+      table.spc-table th, table.spc-table td {
+        border: 1px solid #475569 !important;
+        padding: 2.2mm 2mm !important;
+        text-align: center !important;
+        color: #000000 !important;
+      }
+      table.spc-table th {
+        background: #f1f5f9 !important;
+        font-weight: 800 !important;
+        font-size: 7.5pt !important;
+      }
+      table.spc-table td.spc-subj-name {
+        text-align: left !important;
+        padding-left: 3mm !important;
+        font-weight: 700 !important;
+      }
+      .spc-summary-bar {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background: #f1f5f9 !important;
+        border: 1px solid #475569 !important;
+        border-radius: 4px !important;
+        padding: 2mm 4mm !important;
+        margin-top: 2mm !important;
+        font-size: 8.5pt !important;
+        font-weight: 800 !important;
+      }
+      .spc-signatures {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+        margin-top: auto !important;
+        padding-top: 7mm !important;
+        font-size: 7.8pt !important;
+        font-weight: 700 !important;
+      }
+      .spc-sig-col {
+        border-top: 1px solid #334155 !important;
+        padding-top: 1.5mm !important;
+        min-width: 46mm !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+  <style id="dynamic-print-page-style">@page { size: A4 landscape; margin: 6mm; }</style>
+</head>
+<body>
+  <!-- Top App Header -->
+  <header class="app-header no-print">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">Government Girls Higher Secondary School, Valasaiyur</h1>
+          <p class="brand-subtitle">Class XI &amp; XII Mark Entry Portal &bull; Tamil Nadu State Board (Theory + Internal + Practical)</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btn-save-now" type="button" onclick="manualSaveAction()" class="btn btn-primary">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          <span>Save Marks</span>
+        </button>
+
+        <button id="btn-export-xlsx" type="button" onclick="exportToExcel()" class="btn btn-emerald">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Export Excel</span>
+        </button>
+
+        <button id="btn-export-csv" type="button" onclick="exportToCsv()" class="btn btn-teal">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Export CSV</span>
+        </button>
+
+        <button id="btn-print" type="button" onclick="printConsolidatedSheet()" class="btn btn-secondary">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          <span>Print Mark Sheet</span>
+        </button>
+
+        <button id="btn-print-cards" type="button" onclick="openPrintCardsModal()" class="btn btn-secondary" style="border-color: var(--indigo-200); color: var(--indigo-700); background: var(--indigo-50);">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+          </svg>
+          <span>Print Individual Cards (2/A4)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Google Drive Cloud Sync & Backup Bar -->
+  <section class="drive-sync-bar no-print" aria-label="Google Drive Sync Controls">
+    <div class="drive-bar-inner">
+      <div class="drive-status-group">
+        <span id="drive-status-pill" class="drive-pill">
+          <span class="status-dot"></span>
+          <span id="drive-status-text">Google Drive: Not Connected</span>
+        </span>
+        <span id="drive-sync-timestamp" class="drive-file-hint">Cloud file: GGHSS_Valasaiyur_Mark_Entry_DB.json</span>
+      </div>
+
+      <div class="drive-controls">
+        <button id="btn-drive-connect" type="button" onclick="connectGoogleDrive()" class="btn btn-primary btn-sm">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+          <span>Connect Google Drive</span>
+        </button>
+
+        <button id="btn-drive-push" type="button" onclick="syncToGoogleDrive(false)" class="btn btn-emerald btn-sm hidden">
+          <span>Sync to Drive</span>
+        </button>
+
+        <button id="btn-drive-pull" type="button" onclick="loadFromGoogleDrive(false)" class="btn btn-secondary btn-sm hidden">
+          <span>Load from Drive</span>
+        </button>
+
+        <label id="drive-autosync-wrap" class="autosync-label hidden" title="Automatically push changes to Google Drive">
+          <input id="chk-drive-autosync" type="checkbox" checked onchange="toggleDriveAutoSync(this.checked)" />
+          <span>Auto-Sync</span>
+        </label>
+
+        <button id="btn-drive-disconnect" type="button" onclick="disconnectGoogleDrive()" class="btn btn-danger btn-sm hidden">
+          <span>Disconnect</span>
+        </button>
+
+        <button type="button" onclick="openDriveSetupModal()" class="btn btn-secondary btn-sm" title="Configure Google OAuth Client ID">
+          <span>Drive Setup</span>
+        </button>
+
+        <button type="button" onclick="exportBackupJson()" class="btn btn-secondary btn-sm" title="Download full database backup JSON">
+          <span>Backup JSON</span>
+        </button>
+
+        <button type="button" onclick="triggerRestoreJson()" class="btn btn-secondary btn-sm" title="Restore database from JSON file">
+          <span>Restore JSON</span>
+        </button>
+        <input id="input-restore-json" type="file" accept=".json,application/json" class="hidden" onchange="handleRestoreJsonFile(event)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Workspace -->
+  <main class="main-workspace">
+    <!-- Print-Only Official School Header -->
+    <div class="print-only print-header-box">
+      <h1>Government Girls Higher Secondary School, Valasaiyur</h1>
+      <p id="print-sheet-max-title">Official Consolidated Mark Sheet (Out of 600)</p>
+      <p id="print-subtitle"></p>
+      <div id="print-summary-strip" class="print-summary-bar"></div>
+    </div>
+
+    <!-- Selection Control Panel -->
+    <section class="card control-panel no-print" aria-label="Assessment Selection Controls">
+      <div class="control-grid">
+        <div>
+          <label for="select-class" class="field-label">Class</label>
+          <select id="select-class" onchange="handleClassChange(this.value)" class="form-select">
+            <option value="XI" selected>Class XI</option>
+            <option value="XII">Class XII</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="select-exam" class="field-label">Examination</label>
+          <div class="exam-select-row">
+            <select id="select-exam" onchange="handleExamChange(this.value)" class="form-select">
+              <option value="midterm1" selected>1. 1st Midterm</option>
+              <option value="quarterly">2. Quarterly Examination</option>
+              <option value="midterm2">3. IInd Mid Term</option>
+              <option value="halfyearly">4. Half Yearly</option>
+              <option value="revision1">5. Revision Test 1</option>
+              <option value="revision2">6. Revision Test 2</option>
+              <option value="final_exam">7. District Level Examination</option>
+            </select>
+            <button id="btn-create-exam" type="button" onclick="openCreateExamModal()" class="btn btn-primary btn-icon-square" title="Create Monthly Test or Custom Examination">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
+              <span>Exam</span>
+            </button>
+            <button id="btn-delete-custom-exam" type="button" onclick="promptDeleteCustomExam()" class="btn btn-danger btn-icon-square hidden" title="Delete Selected Custom Examination">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="control-group-col">
+          <label for="select-group" class="field-label">Academic Group &amp; Medium</label>
+          <select id="select-group" onchange="handleGroupChange(this.value)" class="form-select">
+            <option value="A" selected>Group A (Tamil, English, Maths, Physics, Chemistry, Biology) - English Medium</option>
+            <option value="A1">Group A1 (Tamil, English, Physics, Chemistry, Botany, Zoology) - Tamil Medium</option>
+            <option value="A2">Group A2 (Tamil, English, Maths, Physics, Chemistry, Computer Science) - English Medium</option>
+            <option value="B">Group B (Tamil, English, Commerce, Accountancy, Economics, Computer Applications) - Tamil Medium</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="context-strip">
+        <div class="context-badges">
+          <span class="badge-indigo" id="badge-active-context">Class XI &bull; 1. 1st Midterm &bull; Group A (English Medium)</span>
+          <span class="badge-amber" id="rule-summary-badge">Mid Term Rule: Lang/Maths Test/50 &rarr; 90 + Int(10) | Science/CS Test/40 &rarr; 70 + Int(10) + Prac(20)</span>
+        </div>
+        <div style="color: var(--text-muted);">
+          Pass: <strong id="pass-mark-display" style="color: var(--text-primary);">35 / 100</strong> per subject &bull; Type <span class="kbd-tag">AB</span> for Absent
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Analytics Cards -->
+    <section class="stats-grid no-print" aria-label="Class Performance Summary">
+      <div class="card stat-card">
+        <div>
+          <p class="stat-title">Total Students</p>
+          <p class="stat-value" id="stat-total-students">0</p>
+          <p class="stat-sub" id="stat-appeared-sub">0 with marks</p>
+        </div>
+        <div class="stat-icon" style="background: var(--indigo-50); color: var(--indigo-600);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card stat-card">
+        <div>
+          <p class="stat-title">Class Average</p>
+          <p class="stat-value indigo" id="stat-class-avg">0.0%</p>
+          <p class="stat-sub" id="stat-avg-marks">0 / 600 avg</p>
+        </div>
+        <div class="stat-icon" style="background: var(--indigo-50); color: var(--indigo-600);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card stat-card">
+        <div>
+          <p class="stat-title">Pass Percentage</p>
+          <p class="stat-value emerald" id="stat-pass-pct">0.0%</p>
+          <p class="stat-sub" id="stat-pass-count">0 Passed &bull; 0 Failed</p>
+        </div>
+        <div class="stat-icon" style="background: var(--emerald-50); color: var(--emerald-600);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card stat-card">
+        <div>
+          <p class="stat-title">Top Scorer</p>
+          <p class="stat-value top-name" id="stat-top-name">&mdash;</p>
+          <p class="stat-sub" id="stat-top-score">No marks entered</p>
+        </div>
+        <div class="stat-icon" style="background: var(--amber-50); color: var(--amber-800);">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roster & Mark Entry Table Card -->
+    <section class="card table-card" aria-label="Student Mark Entry Roster">
+      <div class="table-toolbar no-print">
+        <div class="toolbar-left">
+          <button type="button" onclick="addStudentRow()" class="btn btn-primary btn-sm">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>+ Add Student</span>
+          </button>
+
+          <button type="button" onclick="openBulkPasteModal()" class="btn btn-secondary btn-sm">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            <span>Bulk Paste / Import Names</span>
+          </button>
+
+          <button type="button" onclick="assignFullIntAndPrac()" class="btn btn-teal btn-sm" title="Set Internal = 10 and Practical = 20 for all present students">
+            <span>Assign Full Int (10) &amp; Prac (20)</span>
+          </button>
+
+          <label class="autosync-label" title="Automatically prefill Internal (10) and Practical (20) for new rows">
+            <input id="chk-auto-full" type="checkbox" checked onchange="toggleAutoFullDefault(this.checked)" />
+            <span>Auto Full Int &amp; Prac</span>
+          </label>
+        </div>
+
+        <div class="toolbar-right">
+          <span class="autosave-indicator" id="save-status-badge">
+            <span class="status-dot"></span>
+            <span id="save-status-text">Auto-saved locally</span>
+          </span>
+
+          <button type="button" onclick="promptClearExamMarks()" class="btn btn-amber btn-sm">
+            <span>Clear Exam Marks</span>
+          </button>
+
+          <button type="button" onclick="promptClearRoster()" class="btn btn-danger btn-sm">
+            <span>Clear All / Reset Roster</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="marks-table" id="marks-table">
+          <thead id="table-head"></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+      <div id="empty-roster-state" class="empty-state hidden">
+        <div class="empty-icon">
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
+        </div>
+        <h3>No students in this group yet</h3>
+        <p>Click <strong>+ Add Student</strong> to add a new row, or paste your entire class list from Excel or Notepad. Internal (10) and Practical (20) marks will be assigned automatically.</p>
+        <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">
+          <button type="button" onclick="addStudentRow()" class="btn btn-primary btn-sm">+ Add Student</button>
+          <button type="button" onclick="openBulkPasteModal()" class="btn btn-secondary btn-sm">Bulk Paste / Import Names</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Print-Only Official Signature Footer -->
+    <div class="print-only print-signature-footer">
+      <div class="print-sig-line">Class Teacher</div>
+      <div class="print-sig-line">Headmistress, GGHSS Valasaiyur</div>
+    </div>
+  </main>
+
+  <!-- Print-Only Container for Individual Student Mark Cards (Strictly 2 Per A4 Portrait Sheet) -->
+  <div id="individual-cards-print-container" aria-hidden="true"></div>
+
+  <!-- Create Custom Examination / Monthly Test Modal -->
+  <div id="modal-create-exam" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-labelledby="modal-create-exam-title">
+    <div class="modal-box wide">
+      <div class="modal-header">
+        <h2 id="modal-create-exam-title" class="modal-title">Create New Examination / Monthly Test</h2>
+        <button type="button" class="modal-close" onclick="closeModal('modal-create-exam')" aria-label="Close">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label for="input-new-exam-name" class="field-label">Examination Name</label>
+          <input id="input-new-exam-name" type="text" placeholder="e.g., Monthly Test - July, Slip Test 1, Revision Test 3" class="form-input" />
+        </div>
+
+        <div>
+          <label class="field-label">Evaluation Pattern / Mark Structure</label>
+          <div class="radio-card-list">
+            <label class="radio-card">
+              <input type="radio" name="exam-pattern-mode" value="monthly" checked onchange="toggleCustomExamPatternFields()" />
+              <div>
+                <span class="radio-card-title">Monthly Test / Direct Marks (No Internal or Practical)</span>
+                <span class="radio-card-desc">Single direct mark entry per subject (e.g., out of 25, 35, 50, or 100). Ideal for Monthly Tests &amp; Slip Tests.</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="exam-pattern-mode" value="midterm" onchange="toggleCustomExamPatternFields()" />
+              <div>
+                <span class="radio-card-title">Mid-Term Conversion Pattern (Test 50&rarr;90 / 40&rarr;70 + Int 10 + Prac 20 = 100)</span>
+                <span class="radio-card-desc">Scales written test marks to 90/70 and adds Internal (10) and Practical (20) to total 100 per subject.</span>
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="exam-pattern-mode" value="standard" onchange="toggleCustomExamPatternFields()" />
+              <div>
+                <span class="radio-card-title">Standard Full Examination (Theory 90/70 + Int 10 + Prac 20 = 100)</span>
+                <span class="radio-card-desc">Full State Board pattern out of 100 per subject (600 Grand Total).</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div id="monthly-test-config-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: var(--indigo-50); border: 1px solid var(--indigo-200); padding: 12px; border-radius: var(--radius-md);">
+          <div>
+            <label for="input-monthly-max-marks" class="field-label" style="color: var(--indigo-700);">Max Marks Per Subject</label>
+            <input id="input-monthly-max-marks" type="number" min="5" max="200" value="50" oninput="autoComputeMonthlyPassMark()" class="form-input" style="background: #ffffff;" />
+          </div>
+          <div>
+            <label for="input-monthly-pass-marks" class="field-label" style="color: var(--indigo-700);">Pass Mark Per Subject (35%)</label>
+            <input id="input-monthly-pass-marks" type="number" min="1" max="200" value="18" class="form-input" style="background: #ffffff;" />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('modal-create-exam')">Cancel</button>
+          <button type="button" onclick="saveNewCustomExam()" class="btn btn-primary btn-sm">Create Examination</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Print Individual Student Mark Cards Selection Modal -->
+  <div id="modal-print-cards" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-labelledby="modal-print-cards-title">
+    <div class="modal-box wide">
+      <div class="modal-header">
+        <h2 id="modal-print-cards-title" class="modal-title">Print Individual Student Progress Cards (2 Per A4 Sheet)</h2>
+        <button type="button" class="modal-close" onclick="closeModal('modal-print-cards')" aria-label="Close">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="margin: 0; font-size: 0.8rem; color: var(--text-secondary);">
+          Generates official <strong>A4 Portrait</strong> progress cards arranged strictly <strong>2 students per A4 sheet</strong> with Class Rank and Parent, Class Teacher &amp; Headmistress signature lines.
+        </p>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+          <span id="print-cards-count-label" style="font-size: 0.78rem; font-weight: 700; color: var(--indigo-700);">0 students selected</span>
+          <div style="display: flex; gap: 6px;">
+            <button type="button" onclick="toggleAllCardCheckboxes(true)" class="btn btn-secondary btn-sm">Select All</button>
+            <button type="button" onclick="toggleAllCardCheckboxes(false)" class="btn btn-secondary btn-sm">Clear Selection</button>
+          </div>
+        </div>
+
+        <div id="print-cards-student-list" class="student-select-checklist"></div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('modal-print-cards')">Cancel</button>
+          <button type="button" onclick="executePrintIndividualCards()" class="btn btn-primary btn-sm">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            <span>Print Selected Cards (2/A4)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bulk Paste / Import Modal -->
+  <div id="modal-bulk-paste" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-labelledby="modal-bulk-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modal-bulk-title" class="modal-title">Bulk Paste / Import Student Names</h2>
+        <button type="button" class="modal-close" onclick="closeModal('modal-bulk-paste')" aria-label="Close">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="margin:0; font-size:0.8rem; color:var(--text-secondary);">
+          Paste one student per line. You may paste <strong>Names only</strong> or <strong>Roll No, Name</strong> separated by a comma or tab.
+        </p>
+        <textarea id="bulk-paste-textarea" rows="8" class="form-textarea" placeholder="11A01, Abinaya S&#10;11A02, Bhuvaneswari R&#10;Charumathi K"></textarea>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('modal-bulk-paste')">Cancel</button>
+          <button type="button" onclick="processBulkPaste()" class="btn btn-primary btn-sm">Import Students</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Drive OAuth Client ID Setup Modal -->
+  <div id="modal-drive-setup" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-labelledby="modal-drive-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modal-drive-title" class="modal-title">Google Drive Cloud Sync Setup</h2>
+        <button type="button" class="modal-close" onclick="closeModal('modal-drive-setup')" aria-label="Close">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="origin-alert">
+          Current Browser Origin: <strong id="current-origin-display"></strong>
+        </div>
+        <div>
+          <label for="input-google-client-id" class="field-label">Google OAuth 2.0 Web Client ID</label>
+          <input id="input-google-client-id" type="text" placeholder="365380285864-xxxx.apps.googleusercontent.com" class="form-input" />
+        </div>
+        <p style="margin:0; font-size:0.75rem; color:var(--text-secondary);">
+          Syncs all Class XI &amp; XII rosters, custom exams, and marks automatically to <strong>GGHSS_Valasaiyur_Mark_Entry_DB.json</strong> in your Google Drive.
+        </p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('modal-drive-setup')">Cancel</button>
+          <button type="button" onclick="saveGoogleClientId()" class="btn btn-primary btn-sm">Save Client ID</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="modal-confirm" class="modal-backdrop no-print" role="dialog" aria-modal="true" aria-labelledby="modal-confirm-title">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="modal-confirm-title" class="modal-title">Confirm Action</h2>
+        <button type="button" class="modal-close" onclick="closeModal('modal-confirm')" aria-label="Close">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-confirm-message" style="margin:0; font-size:0.84rem; color:var(--text-primary);"></p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('modal-confirm')">Cancel</button>
+          <button id="modal-confirm-yes" type="button" class="btn btn-danger btn-sm">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container no-print" aria-live="polite"></div>
+
+  <script>
+    /* ==========================================================================
+       1. ACADEMIC GROUPS, SUBJECT RULES & EXAM DEFINITIONS
+       ========================================================================== */
+    const PRACTICAL_SUBJECTS = new Set([
+      'Physics',
+      'Chemistry',
+      'Biology',
+      'Botany',
+      'Zoology',
+      'Computer Science',
+      'Computer Applications',
+    ]);
+
+    const GROUPS_CONFIG = {
+      A: {
+        code: 'A',
+        medium: 'English Medium',
+        label: 'Group A (English Medium)',
+        fullLabel: 'Group A (Tamil, English, Maths, Physics, Chemistry, Biology) - English Medium',
+        subjects: ['Tamil', 'English', 'Maths', 'Physics', 'Chemistry', 'Biology'],
+        shortSubjects: ['Tamil', 'English', 'Maths', 'Physics', 'Chemistry', 'Biology'],
+      },
+      A1: {
+        code: 'A1',
+        medium: 'Tamil Medium',
+        label: 'Group A1 (Tamil Medium)',
+        fullLabel: 'Group A1 (Tamil, English, Physics, Chemistry, Botany, Zoology) - Tamil Medium',
+        subjects: ['Tamil', 'English', 'Physics', 'Chemistry', 'Botany', 'Zoology'],
+        shortSubjects: ['Tamil', 'English', 'Physics', 'Chemistry', 'Botany', 'Zoology'],
+      },
+      A2: {
+        code: 'A2',
+        medium: 'English Medium',
+        label: 'Group A2 (English Medium)',
+        fullLabel: 'Group A2 (Tamil, English, Maths, Physics, Chemistry, Computer Science) - English Medium',
+        subjects: ['Tamil', 'English', 'Maths', 'Physics', 'Chemistry', 'Computer Science'],
+        shortSubjects: ['Tamil', 'English', 'Maths', 'Physics', 'Chemistry', 'Comp. Sci'],
+      },
+      B: {
+        code: 'B',
+        medium: 'Tamil Medium',
+        label: 'Group B (Tamil Medium)',
+        fullLabel: 'Group B (Tamil, English, Commerce, Accountancy, Economics, Computer Applications) - Tamil Medium',
+        subjects: ['Tamil', 'English', 'Commerce', 'Accountancy', 'Economics', 'Computer Applications'],
+        shortSubjects: ['Tamil', 'English', 'Commerce', 'Accountancy', 'Economics', 'Comp. App'],
+      },
+    };
+
+    const BASE_EXAMS = [
+      { id: 'midterm1', name: '1. 1st Midterm', isMidTerm: true, mode: 'midterm', isCustom: false },
+      { id: 'quarterly', name: '2. Quarterly Examination', isMidTerm: false, mode: 'standard', isCustom: false },
+      { id: 'midterm2', name: '3. IInd Mid Term', isMidTerm: true, mode: 'midterm', isCustom: false },
+      { id: 'halfyearly', name: '4. Half Yearly', isMidTerm: false, mode: 'standard', isCustom: false },
+      { id: 'revision1', name: '5. Revision Test 1', isMidTerm: false, mode: 'standard', isCustom: false },
+      { id: 'revision2', name: '6. Revision Test 2', isMidTerm: false, mode: 'standard', isCustom: false },
+    ];
+
+    const CUSTOM_EXAMS_STORAGE_KEY = 'gghss_valasaiyur_custom_exams_v1';
+
+    function loadCustomExams() {
+      try {
+        const raw = safeGetStorage(CUSTOM_EXAMS_STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function saveCustomExams(customList) {
+      safeSetStorage(CUSTOM_EXAMS_STORAGE_KEY, JSON.stringify(customList));
+      scheduleAutoDriveSync();
+    }
+
+    function getExamsForClass(cls) {
+      const seventh = cls === 'XI'
+        ? { id: 'final_exam', name: '7. District Level Examination', isMidTerm: false, mode: 'standard', isCustom: false }
+        : { id: 'final_exam', name: '7. Public Examination', isMidTerm: false, mode: 'standard', isCustom: false };
+
+      const customExams = loadCustomExams().map(function (ce) {
+        return {
+          id: ce.id,
+          name: ce.name,
+          mode: ce.mode || 'monthly',
+          isMidTerm: ce.mode === 'midterm',
+          isMonthly: ce.mode === 'monthly',
+          maxMarks: Number(ce.maxMarks) || 50,
+          passMarks: Number(ce.passMarks) || Math.ceil((Number(ce.maxMarks) || 50) * 0.35),
+          isCustom: true,
+        };
+      });
+
+      return BASE_EXAMS.concat([seventh], customExams);
+    }
+
+    function getExamConfigById(cls, examId) {
+      const exams = getExamsForClass(cls);
+      return exams.find(function (e) { return e.id === examId; }) || exams[0];
+    }
+
+    function isMidTermExam(examId) {
+      const ex = getExamConfigById(state.selectedClass, examId);
+      return Boolean(ex && (ex.isMidTerm || ex.mode === 'midterm'));
+    }
+
+    function isMonthlyDirectExam(examId) {
+      const ex = getExamConfigById(state.selectedClass, examId);
+      return Boolean(ex && (ex.isMonthly || ex.mode === 'monthly'));
+    }
+
+    function getExamMaxTotal(examId) {
+      const ex = getExamConfigById(state.selectedClass, examId);
+      if (ex && ex.mode === 'monthly') {
+        return (Number(ex.maxMarks) || 50) * 6;
+      }
+      return 600;
+    }
+
+    function isPracticalSubject(subjectName) {
+      return PRACTICAL_SUBJECTS.has(subjectName);
+    }
+
+    function getSubjectScheme(subjectName, examId) {
+      const ex = getExamConfigById(state.selectedClass, examId);
+      if (ex && ex.mode === 'monthly') {
+        const mMax = Number(ex.maxMarks) || 50;
+        const pMark = Number(ex.passMarks) || Math.ceil(mMax * 0.35);
+        return {
+          hasPractical: false,
+          hasInternal: false,
+          isMidTerm: false,
+          isMonthly: true,
+          rawMax: mMax,
+          convertedMax: mMax,
+          internalMax: 0,
+          practicalMax: 0,
+          finalMax: mMax,
+          passMark: pMark,
+        };
+      }
+
+      const midTerm = isMidTermExam(examId);
+      const practical = isPracticalSubject(subjectName);
+
+      if (midTerm) {
+        if (practical) {
+          return { hasPractical: true, hasInternal: true, isMidTerm: true, isMonthly: false, rawMax: 40, convertedMax: 70, internalMax: 10, practicalMax: 20, finalMax: 100, passMark: 35 };
+        }
+        return { hasPractical: false, hasInternal: true, isMidTerm: true, isMonthly: false, rawMax: 50, convertedMax: 90, internalMax: 10, practicalMax: 0, finalMax: 100, passMark: 35 };
+      }
+
+      if (practical) {
+        return { hasPractical: true, hasInternal: true, isMidTerm: false, isMonthly: false, rawMax: 70, convertedMax: 70, internalMax: 10, practicalMax: 20, finalMax: 100, passMark: 35 };
+      }
+      return { hasPractical: false, hasInternal: true, isMidTerm: false, isMonthly: false, rawMax: 90, convertedMax: 90, internalMax: 10, practicalMax: 0, finalMax: 100, passMark: 35 };
+    }
+
+    /* ==========================================================================
+       2. STATE & SAFE STORAGE
+       ========================================================================== */
+    const memoryStorageFallback = {};
+
+    function safeGetStorage(key) {
+      try {
+        return window.localStorage.getItem(key);
+      } catch (err) {
+        return Object.prototype.hasOwnProperty.call(memoryStorageFallback, key) ? memoryStorageFallback[key] : null;
+      }
+    }
+
+    function safeSetStorage(key, val) {
+      try {
+        window.localStorage.setItem(key, val);
+      } catch (err) {
+        memoryStorageFallback[key] = val;
+      }
+    }
+
+    const state = {
+      selectedClass: 'XI',
+      selectedExamId: 'midterm1',
+      selectedGroup: 'A',
+      autoFullDefault: true,
+    };
+
+    function getRosterStorageKey(cls, group) {
+      return 'gghss_valasaiyur_roster_' + cls + '_' + group + '_v1';
+    }
+
+    function getExamStorageKey(cls, examId, group) {
+      return 'gghss_valasaiyur_marks_' + cls + '_' + examId + '_' + group + '_v1';
+    }
+
+    function loadRoster(cls, group) {
+      try {
+        const raw = safeGetStorage(getRosterStorageKey(cls, group));
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (err) {
+        return [];
+      }
+    }
+
+    function saveRoster(cls, group, roster) {
+      safeSetStorage(getRosterStorageKey(cls, group), JSON.stringify(roster));
+      markLocalSaved();
+      scheduleAutoDriveSync();
+    }
+
+    function loadExamData(cls, examId, group) {
+      try {
+        const raw = safeGetStorage(getExamStorageKey(cls, examId, group));
+        if (!raw) return { marks: {} };
+        const parsed = JSON.parse(raw);
+        return parsed && typeof parsed === 'object' && parsed.marks ? parsed : { marks: {} };
+      } catch (err) {
+        return { marks: {} };
+      }
+    }
+
+    function saveExamData(cls, examId, group, examData) {
+      safeSetStorage(getExamStorageKey(cls, examId, group), JSON.stringify(examData));
+      markLocalSaved();
+      scheduleAutoDriveSync();
+    }
+
+    function markLocalSaved() {
+      const txt = document.getElementById('save-status-text');
+      if (txt) {
+        txt.textContent = 'Saved ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      }
+    }
+
+    function generateDefaultRollNo(cls, group, indexOneBased) {
+      const prefix = cls === 'XI' ? '11' : '12';
+      const numStr = indexOneBased < 10 ? '0' + indexOneBased : String(indexOneBased);
+      return prefix + group + numStr;
+    }
+
+    /* ==========================================================================
+       3. MARK EVALUATION & CONVERSION ENGINE
+       ========================================================================== */
+    function getDefaultSubjectEntry(subjectName, examId) {
+      const targetExamId = examId || state.selectedExamId;
+      if (isMonthlyDirectExam(targetExamId) || !state.autoFullDefault) {
+        return { test: '', int: '', prac: '' };
+      }
+      return {
+        test: '',
+        int: '10',
+        prac: isPracticalSubject(subjectName) ? '20' : '',
+      };
+    }
+
+    function ensureStudentMarksArray(studentMarks, groupSubjects, examId) {
+      const targetExamId = examId || state.selectedExamId;
+      const isMonthly = isMonthlyDirectExam(targetExamId);
+      const arr = Array.isArray(studentMarks) ? studentMarks : [];
+      const subjects = groupSubjects || GROUPS_CONFIG[state.selectedGroup].subjects;
+      const result = [];
+
+      for (let i = 0; i < 6; i++) {
+        const subjName = subjects[i];
+        const item = arr[i];
+        if (item && typeof item === 'object') {
+          const testStr = item.test !== undefined ? String(item.test) : '';
+          if (isMonthly) {
+            result.push({ test: testStr, int: '', prac: '' });
+            continue;
+          }
+
+          const isAbsent = testStr.trim().toUpperCase() === 'AB';
+          let intStr = item.int !== undefined ? String(item.int) : '';
+          let pracStr = item.prac !== undefined ? String(item.prac) : '';
+
+          if (state.autoFullDefault && !isAbsent) {
+            if (intStr === '') intStr = '10';
+            if (isPracticalSubject(subjName) && pracStr === '') pracStr = '20';
+          }
+
+          result.push({
+            test: testStr,
+            int: intStr,
+            prac: isPracticalSubject(subjName) ? pracStr : '',
+          });
+        } else {
+          result.push(getDefaultSubjectEntry(subjName, targetExamId));
+        }
+      }
+      return result;
+    }
+
+    function calculateSubjectResult(entry, subjectName, examId) {
+      const scheme = getSubjectScheme(subjectName, examId);
+      const rawTest = (entry.test || '').trim().toUpperCase();
+      const rawInt = (entry.int || '').trim().toUpperCase();
+      const rawPrac = (entry.prac || '').trim().toUpperCase();
+
+      if (rawTest === 'AB') {
+        return {
+          hasData: true,
+          isAbsent: true,
+          convertedTheory: null,
+          internalVal: 0,
+          practicalVal: 0,
+          finalTotal: 0,
+          isPass: false,
+        };
+      }
+
+      if (scheme.isMonthly) {
+        if (rawTest === '') {
+          return {
+            hasData: false,
+            isAbsent: false,
+            convertedTheory: null,
+            internalVal: 0,
+            practicalVal: 0,
+            finalTotal: null,
+            isPass: null,
+          };
+        }
+        const testNum = parseFloat(rawTest);
+        const validMark = !isNaN(testNum) ? testNum : 0;
+        return {
+          hasData: true,
+          isAbsent: false,
+          convertedTheory: validMark,
+          internalVal: 0,
+          practicalVal: 0,
+          finalTotal: validMark,
+          isPass: validMark >= scheme.passMark,
+        };
+      }
+
+      const hasTestEntered = rawTest !== '';
+      const hasCustomInt = rawInt !== '' && rawInt !== '10';
+      const hasCustomPrac = scheme.hasPractical && rawPrac !== '' && rawPrac !== '20';
+      const hasAnyData = state.autoFullDefault
+        ? (hasTestEntered || hasCustomInt || hasCustomPrac)
+        : (hasTestEntered || rawInt !== '' || (scheme.hasPractical && rawPrac !== ''));
+
+      if (!hasAnyData) {
+        return {
+          hasData: false,
+          isAbsent: false,
+          convertedTheory: null,
+          internalVal: rawInt === '' ? 0 : parseFloat(rawInt) || 0,
+          practicalVal: scheme.hasPractical ? (rawPrac === '' ? 0 : parseFloat(rawPrac) || 0) : 0,
+          finalTotal: null,
+          isPass: null,
+        };
+      }
+
+      const testNum = rawTest === '' ? 0 : parseFloat(rawTest);
+      const intNum = rawInt === '' ? 0 : parseFloat(rawInt);
+      const pracNum = scheme.hasPractical ? (rawPrac === '' ? 0 : parseFloat(rawPrac)) : 0;
+
+      let convertedTheory = 0;
+      if (!isNaN(testNum)) {
+        convertedTheory = scheme.isMidTerm
+          ? Math.round((testNum / scheme.rawMax) * scheme.convertedMax)
+          : testNum;
+      }
+
+      const validInt = !isNaN(intNum) ? intNum : 0;
+      const validPrac = !isNaN(pracNum) ? pracNum : 0;
+      const finalTotal = convertedTheory + validInt + validPrac;
+      const isPass = rawTest !== '' && finalTotal >= scheme.passMark;
+
+      return {
+        hasData: true,
+        isAbsent: false,
+        convertedTheory: convertedTheory,
+        internalVal: validInt,
+        practicalVal: validPrac,
+        finalTotal: finalTotal,
+        isPass: isPass,
+      };
+    }
+
+    function evaluateStudent(studentMarksRaw, groupSubjects, examId) {
+      const entries = ensureStudentMarksArray(studentMarksRaw, groupSubjects, examId);
+      const examMaxTotal = getExamMaxTotal(examId);
+      let grandTotal = 0;
+      let subjectsWithData = 0;
+      let subjectsWithTest = 0;
+      let hasAbsent = false;
+      let hasFail = false;
+      const subjectResults = [];
+
+      for (let i = 0; i < 6; i++) {
+        const subjName = groupSubjects[i];
+        const res = calculateSubjectResult(entries[i], subjName, examId);
+        subjectResults.push(res);
+
+        if (res.hasData) {
+          subjectsWithData++;
+          grandTotal += res.finalTotal;
+        }
+        if ((entries[i].test || '').trim() !== '') {
+          subjectsWithTest++;
+        }
+        if (res.isAbsent) {
+          hasAbsent = true;
+          hasFail = true;
+        } else if (res.isPass === false) {
+          hasFail = true;
+        }
+      }
+
+      const hasAnyMark = subjectsWithData > 0;
+      const percentage = hasAnyMark ? (grandTotal / examMaxTotal) * 100 : 0;
+
+      let status = 'PENDING';
+      if (hasAnyMark) {
+        if (hasAbsent || hasFail) {
+          status = 'FAIL';
+        } else if (subjectsWithTest === 6) {
+          status = 'PASS';
+        } else {
+          status = 'INCOMPLETE';
+        }
+      }
+
+      return {
+        entries: entries,
+        subjectResults: subjectResults,
+        grandTotal: grandTotal,
+        examMaxTotal: examMaxTotal,
+        percentage: percentage,
+        hasAnyMark: hasAnyMark,
+        status: status,
+      };
+    }
+
+    /* ==========================================================================
+       4. STUDENT ADDITION, ROSTER MANAGEMENT & CUSTOM EXAM CREATION
+       ========================================================================== */
+    function addStudentRow() {
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const nextNum = roster.length + 1;
+      const rollNo = generateDefaultRollNo(state.selectedClass, state.selectedGroup, nextNum);
+      const newStudent = {
+        id: 'st_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
+        rollNo: rollNo,
+        name: '',
+      };
+
+      roster.push(newStudent);
+      saveRoster(state.selectedClass, state.selectedGroup, roster);
+
+      if (state.autoFullDefault && !isMonthlyDirectExam(state.selectedExamId)) {
+        const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+        const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+        examData.marks[newStudent.id] = ensureStudentMarksArray(null, groupCfg.subjects, state.selectedExamId);
+        saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, examData);
+      }
+
+      renderAll();
+      showToast('Added student row (' + rollNo + '). Enter Student Name.', 'success');
+
+      setTimeout(function () {
+        const inputs = document.querySelectorAll('.student-name-input');
+        if (inputs.length > 0) {
+          inputs[inputs.length - 1].focus();
+        }
+      }, 30);
+    }
+
+    function openBulkPasteModal() {
+      const ta = document.getElementById('bulk-paste-textarea');
+      if (ta) ta.value = '';
+      openModal('modal-bulk-paste');
+      setTimeout(function () {
+        if (ta) ta.focus();
+      }, 40);
+    }
+
+    function processBulkPaste() {
+      const ta = document.getElementById('bulk-paste-textarea');
+      const rawText = ta ? ta.value : '';
+      const lines = rawText.split(/\r?\n/).map(function (l) { return l.trim(); }).filter(Boolean);
+
+      if (lines.length === 0) {
+        showToast('Please paste at least one student name.', 'error');
+        return;
+      }
+
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+      let addedCount = 0;
+
+      lines.forEach(function (line) {
+        let rollNo = '';
+        let name = '';
+
+        if (line.indexOf('\t') !== -1) {
+          const parts = line.split('\t');
+          rollNo = (parts[0] || '').trim().toUpperCase();
+          name = parts.slice(1).join(' ').trim();
+        } else if (line.indexOf(',') !== -1) {
+          const parts = line.split(',');
+          rollNo = (parts[0] || '').trim().toUpperCase();
+          name = parts.slice(1).join(',').trim();
+        } else {
+          name = line;
+        }
+
+        if (!rollNo) {
+          rollNo = generateDefaultRollNo(state.selectedClass, state.selectedGroup, roster.length + 1);
+        }
+
+        if (name || rollNo) {
+          const stId = 'st_' + Date.now() + '_' + addedCount + '_' + Math.random().toString(36).slice(2, 5);
+          roster.push({ id: stId, rollNo: rollNo, name: name });
+          addedCount++;
+
+          if (state.autoFullDefault && !isMonthlyDirectExam(state.selectedExamId)) {
+            examData.marks[stId] = ensureStudentMarksArray(null, groupCfg.subjects, state.selectedExamId);
+          }
+        }
+      });
+
+      saveRoster(state.selectedClass, state.selectedGroup, roster);
+      saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, examData);
+      closeModal('modal-bulk-paste');
+      renderAll();
+      showToast('Imported ' + addedCount + ' student(s).', 'success');
+    }
+
+    function assignFullIntAndPrac() {
+      if (isMonthlyDirectExam(state.selectedExamId)) {
+        showToast('Monthly Tests do not use Internal or Practical marks.', 'info');
+        return;
+      }
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      if (roster.length === 0) {
+        showToast('Add students first before assigning Internal and Practical marks.', 'error');
+        return;
+      }
+
+      const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+      roster.forEach(function (student) {
+        const entries = ensureStudentMarksArray(examData.marks[student.id], groupCfg.subjects, state.selectedExamId);
+        groupCfg.subjects.forEach(function (subj, idx) {
+          const isAb = (entries[idx].test || '').trim().toUpperCase() === 'AB';
+          if (isAb) {
+            entries[idx].int = '0';
+            if (isPracticalSubject(subj)) entries[idx].prac = '0';
+          } else {
+            entries[idx].int = '10';
+            if (isPracticalSubject(subj)) entries[idx].prac = '20';
+          }
+        });
+        examData.marks[student.id] = entries;
+      });
+
+      saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, examData);
+      renderAll();
+      showToast('Assigned full Internal (10) & Practical (20) marks to all present students.', 'success');
+    }
+
+    function openCreateExamModal() {
+      const nameInput = document.getElementById('input-new-exam-name');
+      if (nameInput) nameInput.value = '';
+      const monthlyRadio = document.querySelector('input[name="exam-pattern-mode"][value="monthly"]');
+      if (monthlyRadio) monthlyRadio.checked = true;
+      const maxInput = document.getElementById('input-monthly-max-marks');
+      if (maxInput) maxInput.value = '50';
+      autoComputeMonthlyPassMark();
+      toggleCustomExamPatternFields();
+      openModal('modal-create-exam');
+      setTimeout(function () {
+        if (nameInput) nameInput.focus();
+      }, 40);
+    }
+
+    function toggleCustomExamPatternFields() {
+      const selectedRadio = document.querySelector('input[name="exam-pattern-mode"]:checked');
+      const mode = selectedRadio ? selectedRadio.value : 'monthly';
+      const box = document.getElementById('monthly-test-config-box');
+      if (box) {
+        box.classList.toggle('hidden', mode !== 'monthly');
+      }
+    }
+
+    function autoComputeMonthlyPassMark() {
+      const maxInput = document.getElementById('input-monthly-max-marks');
+      const passInput = document.getElementById('input-monthly-pass-marks');
+      if (!maxInput || !passInput) return;
+      const maxVal = parseInt(maxInput.value, 10);
+      if (!isNaN(maxVal) && maxVal > 0) {
+        passInput.value = String(Math.ceil(maxVal * 0.35));
+      }
+    }
+
+    function saveNewCustomExam() {
+      const nameInput = document.getElementById('input-new-exam-name');
+      const rawName = nameInput ? nameInput.value.trim() : '';
+      if (!rawName) {
+        showToast('Please enter an Examination Name (e.g., Monthly Test - July).', 'error');
+        if (nameInput) nameInput.focus();
+        return;
+      }
+
+      const selectedRadio = document.querySelector('input[name="exam-pattern-mode"]:checked');
+      const mode = selectedRadio ? selectedRadio.value : 'monthly';
+      let maxMarks = 100;
+      let passMarks = 35;
+
+      if (mode === 'monthly') {
+        maxMarks = parseInt(document.getElementById('input-monthly-max-marks').value, 10);
+        passMarks = parseInt(document.getElementById('input-monthly-pass-marks').value, 10);
+        if (isNaN(maxMarks) || maxMarks < 5 || maxMarks > 200) {
+          showToast('Max Marks per subject must be between 5 and 200.', 'error');
+          return;
+        }
+        if (isNaN(passMarks) || passMarks < 1 || passMarks > maxMarks) {
+          showToast('Pass Mark must be between 1 and Max Marks.', 'error');
+          return;
+        }
+      }
+
+      const customList = loadCustomExams();
+      const allExisting = getExamsForClass(state.selectedClass);
+      const nextIndex = allExisting.length + 1;
+      const formattedName = /^\d+\./.test(rawName) ? rawName : (nextIndex + '. ' + rawName);
+      const newExamId = 'custom_' + Date.now() + '_' + Math.random().toString(36).slice(2, 5);
+
+      customList.push({
+        id: newExamId,
+        name: formattedName,
+        mode: mode,
+        maxMarks: maxMarks,
+        passMarks: passMarks,
+      });
+
+      saveCustomExams(customList);
+      state.selectedExamId = newExamId;
+      closeModal('modal-create-exam');
+      renderAll();
+      showToast('Created examination "' + formattedName + '".', 'success');
+    }
+
+    function promptDeleteCustomExam() {
+      const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
+      if (!currentExam || !currentExam.isCustom) {
+        showToast('Standard State Board examinations cannot be deleted.', 'info');
+        return;
+      }
+
+      openConfirmModal(
+        'Delete Custom Examination',
+        'Delete "' + currentExam.name + '" and its entered marks across all classes and groups?',
+        function () {
+          const updated = loadCustomExams().filter(function (ce) { return ce.id !== currentExam.id; });
+          saveCustomExams(updated);
+          ['XI', 'XII'].forEach(function (cls) {
+            ['A', 'A1', 'A2', 'B'].forEach(function (grp) {
+              try {
+                window.localStorage.removeItem(getExamStorageKey(cls, currentExam.id, grp));
+              } catch (e) {}
+            });
+          });
+          state.selectedExamId = 'midterm1';
+          renderAll();
+          showToast('Deleted examination "' + currentExam.name + '".', 'info');
+        }
+      );
+    }
+
+    function deleteStudent(studentId) {
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const student = roster.find(function (s) { return s.id === studentId; });
+      if (!student) return;
+
+      const label = (student.name.trim() || student.rollNo || 'this student');
+      openConfirmModal(
+        'Remove Student',
+        'Remove ' + label + ' from Class ' + state.selectedClass + ' Group ' + state.selectedGroup + '?',
+        function () {
+          const filtered = roster.filter(function (s) { return s.id !== studentId; });
+          saveRoster(state.selectedClass, state.selectedGroup, filtered);
+          renderAll();
+          showToast('Removed ' + label + '.', 'info');
+        }
+      );
+    }
+
+    function promptClearExamMarks() {
+      const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
+      openConfirmModal(
+        'Clear Exam Marks',
+        'Clear all marks entered for ' + currentExam.name + ' (Class ' + state.selectedClass + ' Group ' + state.selectedGroup + ')? Student names will remain intact.',
+        function () {
+          saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, { marks: {} });
+          renderAll();
+          showToast('Cleared marks for ' + currentExam.name + '.', 'info');
+        }
+      );
+    }
+
+    function promptClearRoster() {
+      openConfirmModal(
+        'Reset Roster & Marks',
+        'Delete ALL students and marks in Class ' + state.selectedClass + ' Group ' + state.selectedGroup + ' across all examinations?',
+        function () {
+          saveRoster(state.selectedClass, state.selectedGroup, []);
+          getExamsForClass(state.selectedClass).forEach(function (ex) {
+            saveExamData(state.selectedClass, ex.id, state.selectedGroup, { marks: {} });
+          });
+          renderAll();
+          showToast('Reset roster for Class ' + state.selectedClass + ' Group ' + state.selectedGroup + '.', 'info');
+        }
+      );
+    }
+
+    /* ==========================================================================
+       5. SELECTION HANDLERS & UI RENDERING
+       ========================================================================== */
+    function handleClassChange(newClass) {
+      state.selectedClass = newClass;
+      renderAll();
+    }
+
+    function handleExamChange(newExamId) {
+      state.selectedExamId = newExamId;
+      renderAll();
+    }
+
+    function handleGroupChange(newGroup) {
+      state.selectedGroup = newGroup;
+      renderAll();
+    }
+
+    function toggleAutoFullDefault(checked) {
+      state.autoFullDefault = Boolean(checked);
+      renderAll();
+      showToast(state.autoFullDefault ? 'Auto Full Int (10) & Prac (20) enabled.' : 'Auto Full Int & Prac disabled.', 'info');
+    }
+
+    function manualSaveAction() {
+      markLocalSaved();
+      showToast('All marks saved locally.', 'success');
+      if (driveState.accessToken) {
+        syncToGoogleDrive(false);
+      }
+    }
+
+    function renderExamDropdown() {
+      const sel = document.getElementById('select-exam');
+      if (!sel) return;
+      const exams = getExamsForClass(state.selectedClass);
+      const exists = exams.some(function (e) { return e.id === state.selectedExamId; });
+      if (!exists) state.selectedExamId = exams[0].id;
+
+      sel.innerHTML = exams.map(function (ex) {
+        const selectedAttr = ex.id === state.selectedExamId ? ' selected' : '';
+        return '<option value="' + escapeHtml(ex.id) + '"' + selectedAttr + '>' + escapeHtml(ex.name) + '</option>';
+      }).join('');
+    }
+
+    function updateContextBanner() {
+      const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const examMaxTotal = getExamMaxTotal(state.selectedExamId);
+
+      const badgeContext = document.getElementById('badge-active-context');
+      if (badgeContext) {
+        badgeContext.textContent = 'Class ' + state.selectedClass + ' \u2022 ' + currentExam.name + ' \u2022 ' + groupCfg.label;
+      }
+
+      const btnDeleteExam = document.getElementById('btn-delete-custom-exam');
+      if (btnDeleteExam) {
+        btnDeleteExam.classList.toggle('hidden', !currentExam.isCustom);
+      }
+
+      const ruleBadge = document.getElementById('rule-summary-badge');
+      const passDisplay = document.getElementById('pass-mark-display');
+      if (currentExam.mode === 'monthly') {
+        if (ruleBadge) {
+          ruleBadge.textContent = 'Monthly Test Rule: Direct Marks out of ' + currentExam.maxMarks + ' per subject (Total out of ' + examMaxTotal + ')';
+        }
+        if (passDisplay) {
+          passDisplay.textContent = currentExam.passMarks + ' / ' + currentExam.maxMarks;
+        }
+      } else if (isMidTermExam(state.selectedExamId)) {
+        if (ruleBadge) {
+          ruleBadge.textContent = 'Mid Term Rule: Lang/Maths Test/50 \u2192 90 + Int(10) | Science/CS Test/40 \u2192 70 + Int(10) + Prac(20)';
+        }
+        if (passDisplay) {
+          passDisplay.textContent = '35 / 100';
+        }
+      } else {
+        if (ruleBadge) {
+          ruleBadge.textContent = 'Full Exam Rule: Lang/Maths Theory(90) + Int(10) = 100 | Science/CS Theory(70) + Int(10) + Prac(20) = 100';
+        }
+        if (passDisplay) {
+          passDisplay.textContent = '35 / 100';
+        }
+      }
+
+      const printSheetTitle = document.getElementById('print-sheet-max-title');
+      if (printSheetTitle) {
+        printSheetTitle.textContent = 'Official Consolidated Mark Sheet (Out of ' + examMaxTotal + ')';
+      }
+
+      const printSub = document.getElementById('print-subtitle');
+      if (printSub) {
+        printSub.textContent = 'Class ' + state.selectedClass + ' | ' + currentExam.name + ' | ' + groupCfg.fullLabel;
+      }
+    }
+
+    function renderTableHeader() {
+      const thead = document.getElementById('table-head');
+      if (!thead) return;
+
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const midTerm = isMidTermExam(state.selectedExamId);
+      const isMonthly = isMonthlyDirectExam(state.selectedExamId);
+      const examMaxTotal = getExamMaxTotal(state.selectedExamId);
+
+      if (isMonthly) {
+        const sampleScheme = getSubjectScheme(groupCfg.subjects[0], state.selectedExamId);
+        let monthlyHeader = '<tr>' +
+          '<th class="sticky-col-sno">S.No</th>' +
+          '<th class="sticky-col-roll">Roll No.</th>' +
+          '<th class="sticky-col-name" style="text-align:left; padding-left:10px;">Student Name</th>';
+
+        groupCfg.subjects.forEach(function (subj, idx) {
+          const shortName = groupCfg.shortSubjects[idx];
+          const stripeClass = idx % 2 === 0 ? 'subj-group-even' : 'subj-group-odd';
+          monthlyHeader += '<th class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium); min-width:74px;">' +
+            shortName + '<br/><span style="font-size:0.66rem; font-weight:600; color:var(--text-secondary);">Max: ' + sampleScheme.rawMax + '</span>' +
+            '</th>';
+        });
+
+        monthlyHeader += '<th class="print-col-total" style="min-width:78px;">Total<br/>(' + examMaxTotal + ')</th>' +
+          '<th class="print-col-pct" style="min-width:64px;">%</th>' +
+          '<th class="print-col-res" style="min-width:86px;">Result</th>' +
+          '<th class="no-print" style="width:44px;">Del</th>' +
+          '</tr>';
+        thead.innerHTML = monthlyHeader;
+        return;
+      }
+
+      let topRowHtml = '<tr>' +
+        '<th rowspan="2" class="sticky-col-sno">S.No</th>' +
+        '<th rowspan="2" class="sticky-col-roll">Roll No.</th>' +
+        '<th rowspan="2" class="sticky-col-name" style="text-align:left; padding-left:10px;">Student Name</th>';
+
+      let subRowHtml = '<tr class="sub-header">';
+
+      groupCfg.subjects.forEach(function (subj, idx) {
+        const scheme = getSubjectScheme(subj, state.selectedExamId);
+        const shortName = groupCfg.shortSubjects[idx];
+        const colSpan = scheme.hasPractical ? 4 : 3;
+        const stripeClass = idx % 2 === 0 ? 'subj-group-even' : 'subj-group-odd';
+
+        topRowHtml += '<th colspan="' + colSpan + '" class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium);">' +
+          shortName + ' (100)' +
+          '</th>';
+
+        const testLabel = midTerm
+          ? 'Test/' + scheme.rawMax + '&rarr;' + scheme.convertedMax
+          : 'Th/' + scheme.rawMax;
+
+        subRowHtml += '<th class="' + stripeClass + '">' + testLabel + '</th>';
+        subRowHtml += '<th class="' + stripeClass + '">Int/10</th>';
+        if (scheme.hasPractical) {
+          subRowHtml += '<th class="' + stripeClass + '">Prac/20</th>';
+        }
+        subRowHtml += '<th class="' + stripeClass + '" style="border-right: 2px solid var(--border-medium); font-weight:800;">Tot</th>';
+      });
+
+      topRowHtml += '<th rowspan="2" class="print-col-total" style="min-width:74px;">Total<br/>(600)</th>' +
+        '<th rowspan="2" class="print-col-pct" style="min-width:64px;">%</th>' +
+        '<th rowspan="2" class="print-col-res" style="min-width:86px;">Result</th>' +
+        '<th rowspan="2" class="no-print" style="width:44px;">Del</th>' +
+        '</tr>';
+
+      subRowHtml += '</tr>';
+      thead.innerHTML = topRowHtml + subRowHtml;
+    }
+
+    function getMarkInputClass(rawVal, maxAllowed, allowAbsent, isSubField) {
+      const val = String(rawVal || '').trim().toUpperCase();
+      let cls = 'mark-input' + (isSubField ? ' sub-field' : '');
+      if (val === '') return cls;
+      if (allowAbsent && val === 'AB') return cls + ' absent';
+      const num = parseFloat(val);
+      if (isNaN(num) || num < 0 || num > maxAllowed) return cls + ' invalid';
+      return cls;
+    }
+
+    function getStatusBadgeHtml(status) {
+      if (status === 'PASS') return '<span class="status-badge pass">PASS</span>';
+      if (status === 'FAIL') return '<span class="status-badge fail">FAIL</span>';
+      if (status === 'INCOMPLETE') return '<span class="status-badge incomplete">PARTIAL</span>';
+      return '<span class="status-badge pending">&mdash;</span>';
+    }
+
+    function renderTableBodyAndStats() {
+      const tbody = document.getElementById('table-body');
+      const emptyBox = document.getElementById('empty-roster-state');
+      if (!tbody) return;
+
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+      const isMonthly = isMonthlyDirectExam(state.selectedExamId);
+
+      if (roster.length === 0) {
+        tbody.innerHTML = '';
+        if (emptyBox) emptyBox.classList.remove('hidden');
+        updateSummaryCards([]);
+        return;
+      }
+
+      if (emptyBox) emptyBox.classList.add('hidden');
+
+      const evaluatedList = [];
+      let rowsHtml = '';
+
+      roster.forEach(function (student, rowIdx) {
+        const evalRes = evaluateStudent(examData.marks[student.id], groupCfg.subjects, state.selectedExamId);
+        evaluatedList.push({ student: student, evalRes: evalRes });
+
+        let flatCol = 0;
+        let rowCells = '' +
+          '<td class="sticky-col-sno">' + (rowIdx + 1) + '</td>' +
+          '<td class="sticky-col-roll">' +
+            '<input type="text" class="meta-input student-roll-input" data-student-id="' + student.id + '" value="' + escapeHtml(student.rollNo) + '" placeholder="Roll No" style="text-transform:uppercase;" />' +
+          '</td>' +
+          '<td class="sticky-col-name">' +
+            '<input type="text" class="meta-input student-name-input" data-student-id="' + student.id + '" value="' + escapeHtml(student.name) + '" placeholder="Enter Student Name" />' +
+          '</td>';
+
+        groupCfg.subjects.forEach(function (subj, subjIdx) {
+          const scheme = getSubjectScheme(subj, state.selectedExamId);
+          const entry = evalRes.entries[subjIdx];
+          const calc = evalRes.subjectResults[subjIdx];
+          const stripeClass = subjIdx % 2 === 0 ? 'subj-group-even' : 'subj-group-odd';
+
+          if (isMonthly) {
+            const testColIdx = flatCol++;
+            const failHighlight = (calc.hasData && calc.isPass === false && !calc.isAbsent)
+              ? ' style="text-align:center; border-right: 2px solid var(--border-medium); background:#fff1f2;"'
+              : ' style="text-align:center; border-right: 2px solid var(--border-medium);"';
+            rowCells += '<td class="' + stripeClass + '"' + failHighlight + '>' +
+              '<input type="text" inputmode="decimal" maxlength="5" ' +
+                'class="' + getMarkInputClass(entry.test, scheme.rawMax, true, false) + '" ' +
+                'style="width:52px;" ' +
+                'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="test" ' +
+                'data-row="' + rowIdx + '" data-col="' + testColIdx + '" data-max="' + scheme.rawMax + '" ' +
+                'value="' + escapeHtml(entry.test) + '" placeholder="-" />' +
+            '</td>';
+            return;
+          }
+
+          const testColIdx = flatCol++;
+          const convHintHtml = (scheme.isMidTerm && !calc.isAbsent && (entry.test || '').trim() !== '')
+            ? '<span class="conv-hint" data-conv-for="' + student.id + '-' + subjIdx + '">&rarr;' + calc.convertedTheory + '</span>'
+            : '<span class="conv-hint" data-conv-for="' + student.id + '-' + subjIdx + '"></span>';
+
+          rowCells += '<td class="' + stripeClass + '" style="text-align:center;">' +
+            '<input type="text" inputmode="decimal" maxlength="4" ' +
+              'class="' + getMarkInputClass(entry.test, scheme.rawMax, true, false) + '" ' +
+              'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="test" ' +
+              'data-row="' + rowIdx + '" data-col="' + testColIdx + '" data-max="' + scheme.rawMax + '" ' +
+              'value="' + escapeHtml(entry.test) + '" placeholder="-" />' +
+            convHintHtml +
+          '</td>';
+
+          const intColIdx = flatCol++;
+          rowCells += '<td class="' + stripeClass + '" style="text-align:center;">' +
+            '<input type="text" inputmode="decimal" maxlength="4" ' +
+              'class="' + getMarkInputClass(entry.int, 10, false, true) + '" ' +
+              'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="int" ' +
+              'data-row="' + rowIdx + '" data-col="' + intColIdx + '" data-max="10" ' +
+              'value="' + escapeHtml(entry.int) + '" placeholder="10" />' +
+          '</td>';
+
+          if (scheme.hasPractical) {
+            const pracColIdx = flatCol++;
+            rowCells += '<td class="' + stripeClass + '" style="text-align:center;">' +
+              '<input type="text" inputmode="decimal" maxlength="4" ' +
+                'class="' + getMarkInputClass(entry.prac, 20, false, true) + '" ' +
+                'data-student-id="' + student.id + '" data-subj-idx="' + subjIdx + '" data-field="prac" ' +
+                'data-row="' + rowIdx + '" data-col="' + pracColIdx + '" data-max="20" ' +
+                'value="' + escapeHtml(entry.prac) + '" placeholder="20" />' +
+            '</td>';
+          }
+
+          let totClass = 'subj-total-cell ' + stripeClass + ' muted';
+          let totText = '&mdash;';
+          if (calc.hasData) {
+            if (calc.isAbsent) {
+              totClass = 'subj-total-cell ' + stripeClass + ' fail';
+              totText = 'AB';
+            } else {
+              totClass = 'subj-total-cell ' + stripeClass + (calc.isPass === false ? ' fail' : ' pass');
+              totText = String(calc.finalTotal);
+            }
+          }
+
+          rowCells += '<td class="' + totClass + '" style="border-right: 2px solid var(--border-medium);" data-subj-tot="' + student.id + '-' + subjIdx + '">' + totText + '</td>';
+        });
+
+        rowCells += '<td class="summary-cell print-col-total" data-grand-tot="' + student.id + '">' +
+          (evalRes.hasAnyMark ? evalRes.grandTotal : '&mdash;') +
+        '</td>';
+        rowCells += '<td class="summary-cell print-col-pct" data-pct="' + student.id + '">' +
+          (evalRes.hasAnyMark ? evalRes.percentage.toFixed(1) + '%' : '&mdash;') +
+        '</td>';
+        rowCells += '<td class="summary-cell print-col-res" data-status="' + student.id + '">' +
+          getStatusBadgeHtml(evalRes.status) +
+        '</td>';
+        rowCells += '<td class="no-print">' +
+          '<button type="button" class="row-del-btn" onclick="deleteStudent(\'' + student.id + '\')" title="Remove student">' +
+            '<svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">' +
+              '<path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />' +
+            '</svg>' +
+          '</button>' +
+        '</td>';
+
+        rowsHtml += '<tr data-row-id="' + student.id + '">' + rowCells + '</tr>';
+      });
+
+      tbody.innerHTML = rowsHtml;
+      updateSummaryCards(evaluatedList);
+    }
+
+    function updateSummaryCards(evaluatedList) {
+      const totalStudents = evaluatedList.length;
+      let appearedCount = 0;
+      let sumTotals = 0;
+      let passCount = 0;
+      let failCount = 0;
+      let topStudent = null;
+
+      evaluatedList.forEach(function (item) {
+        const res = item.evalRes;
+        if (res.hasAnyMark) {
+          appearedCount++;
+          sumTotals += res.grandTotal;
+          if (res.status === 'PASS') passCount++;
+          else if (res.status === 'FAIL') failCount++;
+
+          if (!topStudent || res.grandTotal > topStudent.evalRes.grandTotal) {
+            topStudent = item;
+          }
+        }
+      });
+
+      const avgMarks = appearedCount > 0 ? sumTotals / appearedCount : 0;
+      const examMaxTotal = getExamMaxTotal(state.selectedExamId);
+      const avgPct = appearedCount > 0 ? (avgMarks / examMaxTotal) * 100 : 0;
+      const passPct = appearedCount > 0 ? (passCount / appearedCount) * 100 : 0;
+
+      document.getElementById('stat-total-students').textContent = String(totalStudents);
+      document.getElementById('stat-appeared-sub').textContent = appearedCount + ' with marks';
+      document.getElementById('stat-class-avg').textContent = avgPct.toFixed(1) + '%';
+      document.getElementById('stat-avg-marks').textContent = Math.round(avgMarks) + ' / ' + examMaxTotal + ' avg';
+      document.getElementById('stat-pass-pct').textContent = passPct.toFixed(1) + '%';
+      document.getElementById('stat-pass-count').textContent = passCount + ' Passed \u2022 ' + failCount + ' Failed';
+
+      if (topStudent) {
+        const displayName = topStudent.student.name.trim() || topStudent.student.rollNo;
+        document.getElementById('stat-top-name').textContent = displayName + ' (' + topStudent.student.rollNo + ')';
+        document.getElementById('stat-top-score').textContent = topStudent.evalRes.grandTotal + ' / ' + examMaxTotal + ' (' + topStudent.evalRes.percentage.toFixed(1) + '%)';
+      } else {
+        document.getElementById('stat-top-name').textContent = '\u2014';
+        document.getElementById('stat-top-score').textContent = 'No marks entered';
+      }
+
+      const printStrip = document.getElementById('print-summary-strip');
+      if (printStrip) {
+        printStrip.innerHTML =
+          '<span>Total Students: ' + totalStudents + '</span>' +
+          '<span>Class Average: ' + avgPct.toFixed(1) + '% (' + Math.round(avgMarks) + '/' + examMaxTotal + ')</span>' +
+          '<span>Pass %: ' + passPct.toFixed(1) + '% (' + passCount + ' Pass / ' + failCount + ' Fail)</span>';
+      }
+    }
+
+    function renderAll() {
+      renderExamDropdown();
+      updateContextBanner();
+      renderTableHeader();
+      renderTableBodyAndStats();
+    }
+
+    /* ==========================================================================
+       6. FAST IN-PLACE MARK & METADATA INPUT UPDATES
+       ========================================================================== */
+    function handleMarkInputEvent(inputEl) {
+      const studentId = inputEl.dataset.studentId;
+      const subjIdx = parseInt(inputEl.dataset.subjIdx, 10);
+      const field = inputEl.dataset.field;
+      const maxAllowed = parseFloat(inputEl.dataset.max);
+      const allowAbsent = field === 'test';
+
+      let cleanVal = inputEl.value.trim().toUpperCase();
+      if (cleanVal !== inputEl.value) {
+        inputEl.value = cleanVal;
+      }
+
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const subjectName = groupCfg.subjects[subjIdx];
+      const hasPrac = isPracticalSubject(subjectName);
+      const isMonthly = isMonthlyDirectExam(state.selectedExamId);
+
+      const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+      const studentEntries = ensureStudentMarksArray(examData.marks[studentId], groupCfg.subjects, state.selectedExamId);
+      const prevTest = (studentEntries[subjIdx].test || '').trim().toUpperCase();
+
+      studentEntries[subjIdx][field] = cleanVal;
+
+      if (field === 'test' && !isMonthly) {
+        const nowAbsent = cleanVal === 'AB';
+        if (nowAbsent) {
+          studentEntries[subjIdx].int = '0';
+          if (hasPrac) studentEntries[subjIdx].prac = '0';
+        } else if (prevTest === 'AB' && state.autoFullDefault) {
+          studentEntries[subjIdx].int = '10';
+          if (hasPrac) studentEntries[subjIdx].prac = '20';
+        }
+      }
+
+      examData.marks[studentId] = studentEntries;
+      saveExamData(state.selectedClass, state.selectedExamId, state.selectedGroup, examData);
+
+      inputEl.className = getMarkInputClass(cleanVal, maxAllowed, allowAbsent, field !== 'test');
+
+      const tr = inputEl.closest('tr');
+      if (tr && field === 'test' && !isMonthly) {
+        const intInput = tr.querySelector('input.mark-input[data-subj-idx="' + subjIdx + '"][data-field="int"]');
+        if (intInput) {
+          intInput.value = studentEntries[subjIdx].int;
+          intInput.className = getMarkInputClass(studentEntries[subjIdx].int, 10, false, true);
+        }
+        if (hasPrac) {
+          const pracInput = tr.querySelector('input.mark-input[data-subj-idx="' + subjIdx + '"][data-field="prac"]');
+          if (pracInput) {
+            pracInput.value = studentEntries[subjIdx].prac;
+            pracInput.className = getMarkInputClass(studentEntries[subjIdx].prac, 20, false, true);
+          }
+        }
+      }
+
+      const evalRes = evaluateStudent(studentEntries, groupCfg.subjects, state.selectedExamId);
+      const calc = evalRes.subjectResults[subjIdx];
+      const scheme = getSubjectScheme(subjectName, state.selectedExamId);
+
+      if (isMonthly) {
+        const tdCell = inputEl.closest('td');
+        if (tdCell) {
+          tdCell.style.background = (calc.hasData && calc.isPass === false && !calc.isAbsent) ? '#fff1f2' : '';
+        }
+      } else {
+        const convSpan = document.querySelector('[data-conv-for="' + studentId + '-' + subjIdx + '"]');
+        if (convSpan) {
+          convSpan.innerHTML = (scheme.isMidTerm && !calc.isAbsent && (studentEntries[subjIdx].test || '').trim() !== '')
+            ? '&rarr;' + calc.convertedTheory
+            : '';
+        }
+
+        const subjTotCell = document.querySelector('[data-subj-tot="' + studentId + '-' + subjIdx + '"]');
+        if (subjTotCell) {
+          const stripeClass = subjIdx % 2 === 0 ? 'subj-group-even' : 'subj-group-odd';
+          if (!calc.hasData) {
+            subjTotCell.className = 'subj-total-cell ' + stripeClass + ' muted';
+            subjTotCell.innerHTML = '&mdash;';
+          } else if (calc.isAbsent) {
+            subjTotCell.className = 'subj-total-cell ' + stripeClass + ' fail';
+            subjTotCell.textContent = 'AB';
+          } else {
+            subjTotCell.className = 'subj-total-cell ' + stripeClass + (calc.isPass === false ? ' fail' : ' pass');
+            subjTotCell.textContent = String(calc.finalTotal);
+          }
+        }
+      }
+
+      const grandTotCell = document.querySelector('[data-grand-tot="' + studentId + '"]');
+      if (grandTotCell) {
+        grandTotCell.innerHTML = evalRes.hasAnyMark ? String(evalRes.grandTotal) : '&mdash;';
+      }
+      const pctCell = document.querySelector('[data-pct="' + studentId + '"]');
+      if (pctCell) {
+        pctCell.innerHTML = evalRes.hasAnyMark ? evalRes.percentage.toFixed(1) + '%' : '&mdash;';
+      }
+      const statusCell = document.querySelector('[data-status="' + studentId + '"]');
+      if (statusCell) {
+        statusCell.innerHTML = getStatusBadgeHtml(evalRes.status);
+      }
+
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const evaluatedAll = roster.map(function (st) {
+        return {
+          student: st,
+          evalRes: evaluateStudent(examData.marks[st.id], groupCfg.subjects, state.selectedExamId),
+        };
+      });
+      updateSummaryCards(evaluatedAll);
+    }
+
+    function handleMetaInputEvent(inputEl) {
+      const studentId = inputEl.dataset.studentId;
+      const isRoll = inputEl.classList.contains('student-roll-input');
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const st = roster.find(function (s) { return s.id === studentId; });
+      if (!st) return;
+
+      if (isRoll) {
+        st.rollNo = inputEl.value.trim().toUpperCase();
+      } else {
+        st.name = inputEl.value;
+      }
+      saveRoster(state.selectedClass, state.selectedGroup, roster);
+    }
+
+    /* ==========================================================================
+       7. CSV & PURE-JS NATIVE .XLSX EXCEL EXPORT ENGINE
+       ========================================================================== */
+    function exportToCsv() {
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      if (roster.length === 0) {
+        showToast('No students available to export.', 'error');
+        return;
+      }
+
+      const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+      const examMaxTotal = getExamMaxTotal(state.selectedExamId);
+
+      const headers = ['S.No', 'Roll No', 'Student Name'];
+      groupCfg.subjects.forEach(function (subj) {
+        const scheme = getSubjectScheme(subj, state.selectedExamId);
+        if (scheme.isMonthly) {
+          headers.push(subj + ' (' + scheme.rawMax + ')');
+        } else {
+          headers.push(subj + ' Test/' + scheme.rawMax);
+          if (scheme.isMidTerm) headers.push(subj + ' Conv/' + scheme.convertedMax);
+          headers.push(subj + ' Int/10');
+          if (scheme.hasPractical) headers.push(subj + ' Prac/20');
+          headers.push(subj + ' Total/100');
+        }
+      });
+      headers.push('Grand Total (' + examMaxTotal + ')', 'Percentage', 'Result');
+
+      const csvRows = [headers.join(',')];
+
+      roster.forEach(function (student, idx) {
+        const evalRes = evaluateStudent(examData.marks[student.id], groupCfg.subjects, state.selectedExamId);
+        const row = [
+          idx + 1,
+          '"' + String(student.rollNo || '').replace(/"/g, '""') + '"',
+          '"' + String(student.name || '').replace(/"/g, '""') + '"',
+        ];
+
+        groupCfg.subjects.forEach(function (subj, sIdx) {
+          const scheme = getSubjectScheme(subj, state.selectedExamId);
+          const entry = evalRes.entries[sIdx];
+          const calc = evalRes.subjectResults[sIdx];
+
+          if (scheme.isMonthly) {
+            row.push(entry.test || '');
+          } else {
+            row.push(entry.test || '');
+            if (scheme.isMidTerm) {
+              row.push(calc.isAbsent ? 'AB' : (calc.convertedTheory !== null ? calc.convertedTheory : ''));
+            }
+            row.push(entry.int || '');
+            if (scheme.hasPractical) row.push(entry.prac || '');
+            row.push(calc.hasData ? (calc.isAbsent ? 'AB' : calc.finalTotal) : '');
+          }
+        });
+
+        row.push(evalRes.hasAnyMark ? evalRes.grandTotal : '');
+        row.push(evalRes.hasAnyMark ? evalRes.percentage.toFixed(2) + '%' : '');
+        row.push(evalRes.status);
+        csvRows.push(row.join(','));
+      });
+
+      const blob = new Blob([csvRows.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+      const fileName = 'GGHSS_Valasaiyur_Class' + state.selectedClass + '_' + currentExam.id + '_Group' + state.selectedGroup + '.csv';
+      triggerBlobDownload(blob, fileName);
+      showToast('CSV exported: ' + fileName, 'success');
+    }
+
+    function escapeXml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+    }
+
+    function colIndexToLetter(colOneBased) {
+      let n = colOneBased;
+      let letters = '';
+      while (n > 0) {
+        const rem = (n - 1) % 26;
+        letters = String.fromCharCode(65 + rem) + letters;
+        n = Math.floor((n - 1) / 26);
+      }
+      return letters;
+    }
+
+    function xlsxInlineStrCell(col, row, text, styleIdx) {
+      const ref = colIndexToLetter(col) + row;
+      return '<c r="' + ref + '" s="' + styleIdx + '" t="inlineStr"><is><t>' + escapeXml(text) + '</t></is></c>';
+    }
+
+    function xlsxNumberCell(col, row, numVal, styleIdx) {
+      const ref = colIndexToLetter(col) + row;
+      return '<c r="' + ref + '" s="' + styleIdx + '"><v>' + numVal + '</v></c>';
+    }
+
+    function xlsxAutoCell(col, row, rawVal, styleIdx) {
+      const s = String(rawVal === undefined || rawVal === null ? '' : rawVal).trim();
+      if (s === '') return xlsxInlineStrCell(col, row, '', styleIdx);
+      if (/^-?\d+(\.\d+)?$/.test(s)) return xlsxNumberCell(col, row, parseFloat(s), styleIdx);
+      return xlsxInlineStrCell(col, row, s, styleIdx);
+    }
+
+    const CRC32_TABLE = (function () {
+      const tbl = new Uint32Array(256);
+      for (let i = 0; i < 256; i++) {
+        let c = i;
+        for (let k = 0; k < 8; k++) {
+          c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+        }
+        tbl[i] = c >>> 0;
+      }
+      return tbl;
+    })();
+
+    function computeCrc32(uint8Arr) {
+      let crc = 0xFFFFFFFF;
+      for (let i = 0; i < uint8Arr.length; i++) {
+        crc = CRC32_TABLE[(crc ^ uint8Arr[i]) & 0xFF] ^ (crc >>> 8);
+      }
+      return (crc ^ 0xFFFFFFFF) >>> 0;
+    }
+
+    function buildStoreZip(files) {
+      const encoder = new TextEncoder();
+      const localParts = [];
+      const centralParts = [];
+      let offset = 0;
+
+      files.forEach(function (f) {
+        const nameBytes = encoder.encode(f.name);
+        const dataBytes = typeof f.content === 'string' ? encoder.encode(f.content) : f.content;
+        const crc = computeCrc32(dataBytes);
+        const size = dataBytes.length;
+
+        const localHeader = new Uint8Array(30 + nameBytes.length);
+        const lView = new DataView(localHeader.buffer);
+        lView.setUint32(0, 0x04034b50, true);
+        lView.setUint16(4, 20, true);
+        lView.setUint16(6, 0x0800, true);
+        lView.setUint16(8, 0, true);
+        lView.setUint16(10, 0, true);
+        lView.setUint16(12, 0x0021, true);
+        lView.setUint32(14, crc, true);
+        lView.setUint32(18, size, true);
+        lView.setUint32(22, size, true);
+        lView.setUint16(26, nameBytes.length, true);
+        lView.setUint16(28, 0, true);
+        localHeader.set(nameBytes, 30);
+
+        localParts.push(localHeader, dataBytes);
+
+        const centralHeader = new Uint8Array(46 + nameBytes.length);
+        const cView = new DataView(centralHeader.buffer);
+        cView.setUint32(0, 0x02014b50, true);
+        cView.setUint16(4, 20, true);
+        cView.setUint16(6, 20, true);
+        cView.setUint16(8, 0x0800, true);
+        cView.setUint16(10, 0, true);
+        cView.setUint16(12, 0, true);
+        cView.setUint16(14, 0x0021, true);
+        cView.setUint32(16, crc, true);
+        cView.setUint32(20, size, true);
+        cView.setUint32(24, size, true);
+        cView.setUint16(28, nameBytes.length, true);
+        cView.setUint16(30, 0, true);
+        cView.setUint16(32, 0, true);
+        cView.setUint16(34, 0, true);
+        cView.setUint16(36, 0, true);
+        cView.setUint32(38, 0, true);
+        cView.setUint32(42, offset, true);
+        centralHeader.set(nameBytes, 46);
+
+        centralParts.push(centralHeader);
+        offset += localHeader.length + size;
+      });
+
+      let centralSize = 0;
+      centralParts.forEach(function (p) { centralSize += p.length; });
+
+      const eocd = new Uint8Array(22);
+      const eView = new DataView(eocd.buffer);
+      eView.setUint32(0, 0x06054b50, true);
+      eView.setUint16(4, 0, true);
+      eView.setUint16(6, 0, true);
+      eView.setUint16(8, files.length, true);
+      eView.setUint16(10, files.length, true);
+      eView.setUint32(12, centralSize, true);
+      eView.setUint32(16, offset, true);
+      eView.setUint16(20, 0, true);
+
+      return new Blob(localParts.concat(centralParts, [eocd]), {
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      });
+    }
+
+    function exportToExcel() {
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      if (roster.length === 0) {
+        showToast('Add students before exporting to Excel.', 'error');
+        return;
+      }
+
+      try {
+        const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
+        const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+        const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+        const examMaxTotal = getExamMaxTotal(state.selectedExamId);
+
+        let appearedCount = 0;
+        let sumTotals = 0;
+        let passCount = 0;
+        let failCount = 0;
+
+        const subjStats = groupCfg.subjects.map(function (subj) {
+          return { name: subj, appeared: 0, sum: 0, highest: null, lowest: null, passed: 0, failed: 0 };
+        });
+
+        const evaluatedRoster = roster.map(function (student) {
+          const evalRes = evaluateStudent(examData.marks[student.id], groupCfg.subjects, state.selectedExamId);
+          if (evalRes.hasAnyMark) {
+            appearedCount++;
+            sumTotals += evalRes.grandTotal;
+            if (evalRes.status === 'PASS') passCount++;
+            else if (evalRes.status === 'FAIL') failCount++;
+          }
+
+          evalRes.subjectResults.forEach(function (res, idx) {
+            const st = subjStats[idx];
+            if (res.hasData) {
+              st.appeared++;
+              if (res.isAbsent) {
+                st.failed++;
+                if (st.highest === null || 0 > st.highest) st.highest = 0;
+                if (st.lowest === null || 0 < st.lowest) st.lowest = 0;
+              } else {
+                st.sum += res.finalTotal;
+                if (st.highest === null || res.finalTotal > st.highest) st.highest = res.finalTotal;
+                if (st.lowest === null || res.finalTotal < st.lowest) st.lowest = res.finalTotal;
+                if (res.isPass === false) st.failed++;
+                else if (res.isPass === true) st.passed++;
+              }
+            }
+          });
+
+          return { student: student, evalRes: evalRes };
+        });
+
+        const avgMarks = appearedCount > 0 ? (sumTotals / appearedCount) : 0;
+        const avgPct = appearedCount > 0 ? ((avgMarks / examMaxTotal) * 100).toFixed(1) + '%' : '0.0%';
+        const passPct = appearedCount > 0 ? ((passCount / appearedCount) * 100).toFixed(1) + '%' : '0.0%';
+
+        const colWidths = [
+          { min: 1, max: 1, width: 6 },
+          { min: 2, max: 2, width: 12 },
+          { min: 3, max: 3, width: 26 },
+        ];
+        let colCursor = 4;
+        const subjectSpans = [];
+
+        groupCfg.subjects.forEach(function (subj) {
+          const scheme = getSubjectScheme(subj, state.selectedExamId);
+          const startCol = colCursor;
+          if (scheme.isMonthly) {
+            colWidths.push({ min: colCursor, max: colCursor, width: 12 });
+            const endCol = colCursor;
+            colCursor++;
+            subjectSpans.push({ subject: subj, scheme: scheme, startCol: startCol, endCol: endCol });
+          } else {
+            colWidths.push({ min: colCursor, max: colCursor, width: 9 });
+            colCursor++;
+            if (scheme.isMidTerm) {
+              colWidths.push({ min: colCursor, max: colCursor, width: 9.5 });
+              colCursor++;
+            }
+            colWidths.push({ min: colCursor, max: colCursor, width: 8 });
+            colCursor++;
+            if (scheme.hasPractical) {
+              colWidths.push({ min: colCursor, max: colCursor, width: 9 });
+              colCursor++;
+            }
+            colWidths.push({ min: colCursor, max: colCursor, width: 9.5 });
+            const endCol = colCursor;
+            colCursor++;
+            subjectSpans.push({ subject: subj, scheme: scheme, startCol: startCol, endCol: endCol });
+          }
+        });
+
+        const grandTotalCol = colCursor++;
+        const pctCol = colCursor++;
+        const resultCol = colCursor;
+        const totalCols = resultCol;
+        const lastColLetter = colIndexToLetter(totalCols);
+
+        colWidths.push({ min: grandTotalCol, max: grandTotalCol, width: 13 });
+        colWidths.push({ min: pctCol, max: pctCol, width: 10 });
+        colWidths.push({ min: resultCol, max: resultCol, width: 12 });
+
+        const s1Rows = [];
+        const s1Merges = [
+          'A1:' + lastColLetter + '1',
+          'A2:' + lastColLetter + '2',
+          'A3:' + lastColLetter + '3',
+          'A4:A5',
+          'B4:B5',
+          'C4:C5',
+          colIndexToLetter(grandTotalCol) + '4:' + colIndexToLetter(grandTotalCol) + '5',
+          colIndexToLetter(pctCol) + '4:' + colIndexToLetter(pctCol) + '5',
+          colIndexToLetter(resultCol) + '4:' + colIndexToLetter(resultCol) + '5',
+        ];
+
+        let r1Cells = xlsxInlineStrCell(1, 1, 'GOVERNMENT GIRLS HIGHER SECONDARY SCHOOL, VALASAIYUR', 1);
+        for (let c = 2; c <= totalCols; c++) r1Cells += xlsxInlineStrCell(c, 1, '', 1);
+        s1Rows.push('<row r="1" ht="26" customHeight="1">' + r1Cells + '</row>');
+
+        let r2Cells = xlsxInlineStrCell(1, 2, 'Class ' + state.selectedClass + ' | ' + currentExam.name + ' | ' + groupCfg.fullLabel, 2);
+        for (let c = 2; c <= totalCols; c++) r2Cells += xlsxInlineStrCell(c, 2, '', 2);
+        s1Rows.push('<row r="2" ht="21" customHeight="1">' + r2Cells + '</row>');
+
+        const summaryText = 'Total Students: ' + roster.length + '   |   Appeared: ' + appearedCount + '   |   Class Average: ' + avgPct + ' (' + Math.round(avgMarks) + '/' + examMaxTotal + ')   |   Pass %: ' + passPct + ' (' + passCount + ' Passed, ' + failCount + ' Failed)';
+        let r3Cells = xlsxInlineStrCell(1, 3, summaryText, 3);
+        for (let c = 2; c <= totalCols; c++) r3Cells += xlsxInlineStrCell(c, 3, '', 3);
+        s1Rows.push('<row r="3" ht="20" customHeight="1">' + r3Cells + '</row>');
+
+        let r4Cells = '';
+        let r5Cells = '';
+
+        r4Cells += xlsxInlineStrCell(1, 4, 'S.No', 4);
+        r4Cells += xlsxInlineStrCell(2, 4, 'Roll No.', 4);
+        r4Cells += xlsxInlineStrCell(3, 4, 'Student Name', 4);
+        r5Cells += xlsxInlineStrCell(1, 5, '', 4);
+        r5Cells += xlsxInlineStrCell(2, 5, '', 4);
+        r5Cells += xlsxInlineStrCell(3, 5, '', 4);
+
+        subjectSpans.forEach(function (sp) {
+          if (sp.startCol !== sp.endCol) {
+            s1Merges.push(colIndexToLetter(sp.startCol) + '4:' + colIndexToLetter(sp.endCol) + '4');
+          }
+          r4Cells += xlsxInlineStrCell(sp.startCol, 4, sp.subject + ' (' + sp.scheme.finalMax + ')', 4);
+          for (let c = sp.startCol + 1; c <= sp.endCol; c++) {
+            r4Cells += xlsxInlineStrCell(c, 4, '', 4);
+          }
+
+          let sc = sp.startCol;
+          if (sp.scheme.isMonthly) {
+            r5Cells += xlsxInlineStrCell(sc++, 5, 'Marks/' + sp.scheme.rawMax, 5);
+          } else {
+            r5Cells += xlsxInlineStrCell(sc++, 5, (sp.scheme.isMidTerm ? 'Test/' : 'Th/') + sp.scheme.rawMax, 5);
+            if (sp.scheme.isMidTerm) {
+              r5Cells += xlsxInlineStrCell(sc++, 5, 'Conv/' + sp.scheme.convertedMax, 5);
+            }
+            r5Cells += xlsxInlineStrCell(sc++, 5, 'Int/10', 5);
+            if (sp.scheme.hasPractical) {
+              r5Cells += xlsxInlineStrCell(sc++, 5, 'Prac/20', 5);
+            }
+            r5Cells += xlsxInlineStrCell(sc++, 5, 'Tot/100', 5);
+          }
+        });
+
+        r4Cells += xlsxInlineStrCell(grandTotalCol, 4, 'Total (' + examMaxTotal + ')', 4);
+        r4Cells += xlsxInlineStrCell(pctCol, 4, '%', 4);
+        r4Cells += xlsxInlineStrCell(resultCol, 4, 'Result', 4);
+        r5Cells += xlsxInlineStrCell(grandTotalCol, 5, '', 4);
+        r5Cells += xlsxInlineStrCell(pctCol, 5, '', 4);
+        r5Cells += xlsxInlineStrCell(resultCol, 5, '', 4);
+
+        s1Rows.push('<row r="4" ht="22" customHeight="1">' + r4Cells + '</row>');
+        s1Rows.push('<row r="5" ht="20" customHeight="1">' + r5Cells + '</row>');
+
+        evaluatedRoster.forEach(function (item, idx) {
+          const rNum = 6 + idx;
+          const student = item.student;
+          const evalRes = item.evalRes;
+          let rowCells = '';
+
+          rowCells += xlsxNumberCell(1, rNum, idx + 1, 6);
+          rowCells += xlsxInlineStrCell(2, rNum, student.rollNo || '', 6);
+          rowCells += xlsxInlineStrCell(3, rNum, student.name || '', 7);
+
+          let cPtr = 4;
+          groupCfg.subjects.forEach(function (subj, sIdx) {
+            const scheme = getSubjectScheme(subj, state.selectedExamId);
+            const entry = evalRes.entries[sIdx];
+            const calc = evalRes.subjectResults[sIdx];
+
+            if (scheme.isMonthly) {
+              if (!calc.hasData) {
+                rowCells += xlsxInlineStrCell(cPtr++, rNum, '—', 8);
+              } else if (calc.isAbsent) {
+                rowCells += xlsxInlineStrCell(cPtr++, rNum, 'AB', 9);
+              } else {
+                const totStyle = calc.isPass === false ? 9 : 8;
+                rowCells += xlsxNumberCell(cPtr++, rNum, calc.finalTotal, totStyle);
+              }
+              return;
+            }
+
+            rowCells += xlsxAutoCell(cPtr++, rNum, entry.test, 6);
+            if (scheme.isMidTerm) {
+              const convVal = calc.isAbsent ? 'AB' : (calc.convertedTheory !== null ? calc.convertedTheory : '');
+              rowCells += xlsxAutoCell(cPtr++, rNum, convVal, 6);
+            }
+            rowCells += xlsxAutoCell(cPtr++, rNum, entry.int, 6);
+            if (scheme.hasPractical) {
+              rowCells += xlsxAutoCell(cPtr++, rNum, entry.prac, 6);
+            }
+
+            if (!calc.hasData) {
+              rowCells += xlsxInlineStrCell(cPtr++, rNum, '—', 8);
+            } else if (calc.isAbsent) {
+              rowCells += xlsxInlineStrCell(cPtr++, rNum, 'AB', 9);
+            } else {
+              const totStyle = calc.isPass === false ? 9 : 8;
+              rowCells += xlsxNumberCell(cPtr++, rNum, calc.finalTotal, totStyle);
+            }
+          });
+
+          if (evalRes.hasAnyMark) {
+            rowCells += xlsxNumberCell(grandTotalCol, rNum, evalRes.grandTotal, 8);
+            rowCells += xlsxInlineStrCell(pctCol, rNum, evalRes.percentage.toFixed(1) + '%', 6);
+          } else {
+            rowCells += xlsxInlineStrCell(grandTotalCol, rNum, '—', 8);
+            rowCells += xlsxInlineStrCell(pctCol, rNum, '—', 6);
+          }
+
+          const statusStyle = evalRes.status === 'PASS' ? 10 : (evalRes.status === 'FAIL' ? 9 : 6);
+          rowCells += xlsxInlineStrCell(resultCol, rNum, evalRes.status, statusStyle);
+
+          s1Rows.push('<row r="' + rNum + '" ht="19" customHeight="1">' + rowCells + '</row>');
+        });
+
+        const colsXml = colWidths.map(function (cw) {
+          return '<col min="' + cw.min + '" max="' + cw.max + '" width="' + cw.width + '" customWidth="1"/>';
+        }).join('');
+
+        const mergesXml = '<mergeCells count="' + s1Merges.length + '">' +
+          s1Merges.map(function (m) { return '<mergeCell ref="' + m + '"/>'; }).join('') +
+          '</mergeCells>';
+
+        const sheet1Xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+          '<sheetViews><sheetView workbookViewId="0"><pane ySplit="5" topLeftCell="A6" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>' +
+          '<sheetFormatPr defaultRowHeight="19"/>' +
+          '<cols>' + colsXml + '</cols>' +
+          '<sheetData>' + s1Rows.join('') + '</sheetData>' +
+          mergesXml +
+          '<pageSetup orientation="landscape" paperSize="9" fitToWidth="1" fitToHeight="1"/>' +
+          '</worksheet>';
+
+        // Sheet 2: Subject Analysis
+        const s2Rows = [];
+        let s2R1 = xlsxInlineStrCell(1, 1, 'SUBJECT-WISE PERFORMANCE ANALYSIS — GGHSS VALASAIYUR', 1);
+        for (let c = 2; c <= 8; c++) s2R1 += xlsxInlineStrCell(c, 1, '', 1);
+        s2Rows.push('<row r="1" ht="26" customHeight="1">' + s2R1 + '</row>');
+
+        let s2R2 = xlsxInlineStrCell(1, 2, 'Class ' + state.selectedClass + ' | ' + currentExam.name + ' | ' + groupCfg.label, 2);
+        for (let c = 2; c <= 8; c++) s2R2 += xlsxInlineStrCell(c, 2, '', 2);
+        s2Rows.push('<row r="2" ht="22" customHeight="1">' + s2R2 + '</row>');
+
+        const sampleSubjMax = getSubjectScheme(groupCfg.subjects[0], state.selectedExamId).finalMax;
+        const s2Headers = ['Subject (Max ' + sampleSubjMax + ')', 'Appeared', 'Highest', 'Lowest', 'Average', 'Passed', 'Failed / AB', 'Pass %'];
+        const s2R3 = s2Headers.map(function (h, i) { return xlsxInlineStrCell(i + 1, 3, h, 4); }).join('');
+        s2Rows.push('<row r="3" ht="22" customHeight="1">' + s2R3 + '</row>');
+
+        subjStats.forEach(function (st, idx) {
+          const rNum = 4 + idx;
+          const subjAvg = st.appeared > 0 ? (st.sum / st.appeared).toFixed(1) : '—';
+          const subjPassPct = st.appeared > 0 ? ((st.passed / st.appeared) * 100).toFixed(1) + '%' : '—';
+          const cells =
+            xlsxInlineStrCell(1, rNum, st.name, 7) +
+            xlsxNumberCell(2, rNum, st.appeared, 6) +
+            (st.highest !== null ? xlsxNumberCell(3, rNum, st.highest, 8) : xlsxInlineStrCell(3, rNum, '—', 6)) +
+            (st.lowest !== null ? xlsxNumberCell(4, rNum, st.lowest, 6) : xlsxInlineStrCell(4, rNum, '—', 6)) +
+            xlsxInlineStrCell(5, rNum, subjAvg, 6) +
+            xlsxNumberCell(6, rNum, st.passed, 10) +
+            xlsxNumberCell(7, rNum, st.failed, st.failed > 0 ? 9 : 6) +
+            xlsxInlineStrCell(8, rNum, subjPassPct, 8);
+          s2Rows.push('<row r="' + rNum + '" ht="20" customHeight="1">' + cells + '</row>');
+        });
+
+        const sheet2Xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+          '<sheetViews><sheetView workbookViewId="0"/></sheetViews>' +
+          '<sheetFormatPr defaultRowHeight="20"/>' +
+          '<cols>' +
+            '<col min="1" max="1" width="24" customWidth="1"/>' +
+            '<col min="2" max="8" width="13" customWidth="1"/>' +
+          '</cols>' +
+          '<sheetData>' + s2Rows.join('') + '</sheetData>' +
+          '<mergeCells count="2"><mergeCell ref="A1:H1"/><mergeCell ref="A2:H2"/></mergeCells>' +
+          '</worksheet>';
+
+        const stylesXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">' +
+            '<fonts count="6">' +
+              '<font><sz val="10"/><name val="Calibri"/></font>' +
+              '<font><b/><sz val="13"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font>' +
+              '<font><b/><sz val="10"/><color rgb="FF1E1B4B"/><name val="Calibri"/></font>' +
+              '<font><b/><sz val="10"/><color rgb="FF0F172A"/><name val="Calibri"/></font>' +
+              '<font><b/><sz val="10"/><color rgb="FFBE123C"/><name val="Calibri"/></font>' +
+              '<font><b/><sz val="10"/><color rgb="FF047857"/><name val="Calibri"/></font>' +
+            '</fonts>' +
+            '<fills count="7">' +
+              '<fill><patternFill patternType="none"/></fill>' +
+              '<fill><patternFill patternType="gray125"/></fill>' +
+              '<fill><patternFill patternType="solid"><fgColor rgb="FF312E81"/></patternFill></fill>' +
+              '<fill><patternFill patternType="solid"><fgColor rgb="FFE0E7FF"/></patternFill></fill>' +
+              '<fill><patternFill patternType="solid"><fgColor rgb="FFF1F5F9"/></patternFill></fill>' +
+              '<fill><patternFill patternType="solid"><fgColor rgb="FFFFF1F2"/></patternFill></fill>' +
+              '<fill><patternFill patternType="solid"><fgColor rgb="FFECFDF5"/></patternFill></fill>' +
+            '</fills>' +
+            '<borders count="2">' +
+              '<border><left/><right/><top/><bottom/><diagonal/></border>' +
+              '<border>' +
+                '<left style="thin"><color rgb="FFCBD5E1"/></left>' +
+                '<right style="thin"><color rgb="FFCBD5E1"/></right>' +
+                '<top style="thin"><color rgb="FFCBD5E1"/></top>' +
+                '<bottom style="thin"><color rgb="FFCBD5E1"/></bottom>' +
+                '<diagonal/>' +
+              '</border>' +
+            '</borders>' +
+            '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>' +
+            '<cellXfs count="11">' +
+              '<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>' +
+              '<xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="2" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="3" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="3" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>' +
+              '<xf numFmtId="0" fontId="0" fillId="4" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="4" fillId="5" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+              '<xf numFmtId="0" fontId="5" fillId="6" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>' +
+            '</cellXfs>' +
+            '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>' +
+          '</styleSheet>';
+
+        const contentTypesXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">' +
+            '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>' +
+            '<Default Extension="xml" ContentType="application/xml"/>' +
+            '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>' +
+            '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>' +
+            '<Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>' +
+            '<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>' +
+          '</Types>';
+
+        const rootRelsXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+            '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>' +
+          '</Relationships>';
+
+        const workbookXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">' +
+            '<sheets>' +
+              '<sheet name="Mark Sheet" sheetId="1" r:id="rId1"/>' +
+              '<sheet name="Subject Analysis" sheetId="2" r:id="rId2"/>' +
+            '</sheets>' +
+          '</workbook>';
+
+        const workbookRelsXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+          '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+            '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>' +
+            '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/>' +
+            '<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>' +
+          '</Relationships>';
+
+        const xlsxBlob = buildStoreZip([
+          { name: '[Content_Types].xml', content: contentTypesXml },
+          { name: '_rels/.rels', content: rootRelsXml },
+          { name: 'xl/workbook.xml', content: workbookXml },
+          { name: 'xl/_rels/workbook.xml.rels', content: workbookRelsXml },
+          { name: 'xl/styles.xml', content: stylesXml },
+          { name: 'xl/worksheets/sheet1.xml', content: sheet1Xml },
+          { name: 'xl/worksheets/sheet2.xml', content: sheet2Xml },
+        ]);
+
+        const fileName = 'GGHSS_Valasaiyur_Class' + state.selectedClass + '_' + currentExam.id + '_Group' + state.selectedGroup + '.xlsx';
+        triggerBlobDownload(xlsxBlob, fileName);
+        showToast('Excel (.xlsx) exported: ' + fileName, 'success');
+      } catch (err) {
+        showToast('Excel export failed: ' + err.message, 'error');
+      }
+    }
+
+    /* ==========================================================================
+       8. GOOGLE DRIVE API CLOUD SYNC & OFFLINE JSON BACKUP/RESTORE
+       ========================================================================== */
+    const DRIVE_CLIENT_ID_KEY = 'gghss_valasaiyur_google_client_id_v1';
+    const DRIVE_FILE_ID_KEY = 'gghss_valasaiyur_google_file_id_v1';
+    const DRIVE_AUTOSYNC_KEY = 'gghss_valasaiyur_google_autosync_v1';
+    const DRIVE_DB_FILENAME = 'GGHSS_Valasaiyur_Mark_Entry_DB.json';
+    const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
+
+    const driveState = {
+      clientId: safeGetStorage(DRIVE_CLIENT_ID_KEY) || '365380285864-74o09od21jp1t6sh3eu5713f8roscq05.apps.googleusercontent.com',
+      fileId: safeGetStorage(DRIVE_FILE_ID_KEY) || '',
+      accessToken: '',
+      tokenClient: null,
+      autoSync: safeGetStorage(DRIVE_AUTOSYNC_KEY) !== 'false',
+      syncTimer: null,
+      isSyncing: false,
+    };
+
+    function updateDriveStatusUi(mode, labelText, subText) {
+      const pill = document.getElementById('drive-status-pill');
+      const statusText = document.getElementById('drive-status-text');
+      const timeText = document.getElementById('drive-sync-timestamp');
+      const btnConnect = document.getElementById('btn-drive-connect');
+      const btnPush = document.getElementById('btn-drive-push');
+      const btnPull = document.getElementById('btn-drive-pull');
+      const btnDisc = document.getElementById('btn-drive-disconnect');
+      const autoWrap = document.getElementById('drive-autosync-wrap');
+
+      if (pill) pill.className = 'drive-pill' + (mode ? ' ' + mode : '');
+      if (statusText && labelText) statusText.textContent = labelText;
+      if (timeText && subText) timeText.textContent = subText;
+
+      const isConnected = Boolean(driveState.accessToken);
+      if (btnConnect) btnConnect.classList.toggle('hidden', isConnected);
+      if (btnPush) btnPush.classList.toggle('hidden', !isConnected);
+      if (btnPull) btnPull.classList.toggle('hidden', !isConnected);
+      if (btnDisc) btnDisc.classList.toggle('hidden', !isConnected);
+      if (autoWrap) autoWrap.classList.toggle('hidden', !isConnected);
+    }
+
+    function openDriveSetupModal() {
+      const originEl = document.getElementById('current-origin-display');
+      if (originEl) {
+        const origin = window.location.origin;
+        originEl.textContent = (!origin || origin === 'null' || window.location.protocol === 'file:')
+          ? 'Local file:// (Host on GitHub Pages https://... for Google Drive Sign-In)'
+          : origin;
+      }
+      const inputEl = document.getElementById('input-google-client-id');
+      if (inputEl) inputEl.value = driveState.clientId;
+      openModal('modal-drive-setup');
+    }
+
+    function saveGoogleClientId() {
+      const inputEl = document.getElementById('input-google-client-id');
+      const val = inputEl ? inputEl.value.trim() : '';
+      if (!val || val.indexOf('.apps.googleusercontent.com') === -1) {
+        showToast('Enter a valid Google OAuth Client ID ending in .apps.googleusercontent.com', 'error');
+        return;
+      }
+      driveState.clientId = val;
+      driveState.tokenClient = null;
+      safeSetStorage(DRIVE_CLIENT_ID_KEY, val);
+      closeModal('modal-drive-setup');
+      showToast('Google OAuth Client ID saved. Click "Connect Google Drive" to sign in.', 'success');
+    }
+
+    function toggleDriveAutoSync(checked) {
+      driveState.autoSync = Boolean(checked);
+      safeSetStorage(DRIVE_AUTOSYNC_KEY, driveState.autoSync ? 'true' : 'false');
+      showToast(driveState.autoSync ? 'Google Drive Auto-Sync enabled.' : 'Google Drive Auto-Sync paused.', 'info');
+    }
+
+    function scheduleAutoDriveSync() {
+      if (!driveState.accessToken || !driveState.autoSync) return;
+      if (driveState.syncTimer) clearTimeout(driveState.syncTimer);
+      driveState.syncTimer = setTimeout(function () {
+        syncToGoogleDrive(true);
+      }, 2200);
+    }
+
+    function connectGoogleDrive() {
+      if (window.location.protocol === 'file:') {
+        showToast('Google Sign-In requires https:// (GitHub Pages). Use Backup/Restore JSON for local files.', 'error');
+        openDriveSetupModal();
+        return;
+      }
+      if (!driveState.clientId) {
+        showToast('Please enter your Google OAuth Client ID first.', 'info');
+        openDriveSetupModal();
+        return;
+      }
+      if (!window.google || !window.google.accounts || !window.google.accounts.oauth2) {
+        showToast('Google Identity library is still loading. Please try again in 2 seconds.', 'error');
+        return;
+      }
+
+      try {
+        if (!driveState.tokenClient) {
+          driveState.tokenClient = window.google.accounts.oauth2.initTokenClient({
+            client_id: driveState.clientId,
+            scope: DRIVE_SCOPE,
+            callback: function (tokenResponse) {
+              if (tokenResponse && tokenResponse.access_token) {
+                driveState.accessToken = tokenResponse.access_token;
+                updateDriveStatusUi('connected', 'Google Drive: Connected', 'Checking cloud database...');
+                showToast('Connected to Google Drive.', 'success');
+                loadFromGoogleDrive(true);
+              } else if (tokenResponse && tokenResponse.error) {
+                updateDriveStatusUi('error', 'Google Drive: Auth Error', 'Error: ' + tokenResponse.error);
+                showToast('Google sign-in error: ' + tokenResponse.error, 'error');
+              }
+            },
+          });
+        }
+        driveState.tokenClient.requestAccessToken({ prompt: '' });
+      } catch (err) {
+        showToast('Could not start Google Sign-In: ' + err.message, 'error');
+      }
+    }
+
+    function disconnectGoogleDrive() {
+      const token = driveState.accessToken;
+      driveState.accessToken = '';
+      if (token && window.google && window.google.accounts && window.google.accounts.oauth2) {
+        try {
+          window.google.accounts.oauth2.revoke(token, function () {});
+        } catch (e) {}
+      }
+      updateDriveStatusUi('', 'Google Drive: Not Connected', 'Cloud file: ' + DRIVE_DB_FILENAME);
+      showToast('Disconnected from Google Drive.', 'info');
+    }
+
+    async function findOrCreateDriveFileId() {
+      if (driveState.fileId) {
+        const checkResp = await fetch('https://www.googleapis.com/drive/v3/files/' + encodeURIComponent(driveState.fileId) + '?fields=id,trashed', {
+          headers: { Authorization: 'Bearer ' + driveState.accessToken },
+        });
+        if (checkResp.ok) {
+          const meta = await checkResp.json();
+          if (meta && meta.id && !meta.trashed) return meta.id;
+        }
+        driveState.fileId = '';
+        safeSetStorage(DRIVE_FILE_ID_KEY, '');
+      }
+
+      const query = encodeURIComponent("name='" + DRIVE_DB_FILENAME + "' and trashed=false");
+      const searchResp = await fetch('https://www.googleapis.com/drive/v3/files?q=' + query + '&spaces=drive&fields=files(id,name,modifiedTime)&orderBy=modifiedTime desc', {
+        headers: { Authorization: 'Bearer ' + driveState.accessToken },
+      });
+
+      if (!searchResp.ok) {
+        if (searchResp.status === 401) {
+          driveState.accessToken = '';
+          updateDriveStatusUi('error', 'Google Drive: Session Expired', 'Click Connect Google Drive to reconnect');
+        }
+        throw new Error('Drive search failed (' + searchResp.status + ')');
+      }
+
+      const searchJson = await searchResp.json();
+      if (searchJson.files && searchJson.files.length > 0) {
+        driveState.fileId = searchJson.files[0].id;
+        safeSetStorage(DRIVE_FILE_ID_KEY, driveState.fileId);
+        return driveState.fileId;
+      }
+
+      return '';
+    }
+
+    async function syncToGoogleDrive(isSilent) {
+      if (!driveState.accessToken || driveState.isSyncing) return;
+      driveState.isSyncing = true;
+      updateDriveStatusUi('syncing', 'Google Drive: Syncing...', 'Uploading marks to cloud...');
+
+      try {
+        const snapshot = buildFullDatabaseSnapshot();
+        const existingId = await findOrCreateDriveFileId();
+        const boundary = 'gghss_boundary_' + Date.now();
+        const metadata = { name: DRIVE_DB_FILENAME, mimeType: 'application/json' };
+
+        const multipartBody =
+          '--' + boundary + '\r\n' +
+          'Content-Type: application/json; charset=UTF-8\r\n\r\n' +
+          JSON.stringify(metadata) + '\r\n' +
+          '--' + boundary + '\r\n' +
+          'Content-Type: application/json; charset=UTF-8\r\n\r\n' +
+          JSON.stringify(snapshot) + '\r\n' +
+          '--' + boundary + '--';
+
+        const uploadUrl = existingId
+          ? 'https://www.googleapis.com/upload/drive/v3/files/' + encodeURIComponent(existingId) + '?uploadType=multipart'
+          : 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
+
+        const resp = await fetch(uploadUrl, {
+          method: existingId ? 'PATCH' : 'POST',
+          headers: {
+            Authorization: 'Bearer ' + driveState.accessToken,
+            'Content-Type': 'multipart/related; boundary=' + boundary,
+          },
+          body: multipartBody,
+        });
+
+        if (!resp.ok) {
+          throw new Error('Upload failed (' + resp.status + ')');
+        }
+
+        const resultJson = await resp.json();
+        if (resultJson && resultJson.id) {
+          driveState.fileId = resultJson.id;
+          safeSetStorage(DRIVE_FILE_ID_KEY, driveState.fileId);
+        }
+
+        const timeLabel = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        updateDriveStatusUi('connected', 'Google Drive: Synced', 'Last synced at ' + timeLabel);
+        if (!isSilent) showToast('All marks synced to Google Drive.', 'success');
+      } catch (err) {
+        updateDriveStatusUi('error', 'Google Drive: Sync Error', err.message);
+        if (!isSilent) showToast('Google Drive sync failed: ' + err.message, 'error');
+      } finally {
+        driveState.isSyncing = false;
+      }
+    }
+
+    async function loadFromGoogleDrive(isInitialConnect) {
+      if (!driveState.accessToken) return;
+      updateDriveStatusUi('syncing', 'Google Drive: Loading...', 'Checking ' + DRIVE_DB_FILENAME + '...');
+
+      try {
+        const fileId = await findOrCreateDriveFileId();
+        if (!fileId) {
+          if (isInitialConnect) {
+            await syncToGoogleDrive(true);
+            showToast('Created new cloud database in your Google Drive.', 'success');
+          } else {
+            updateDriveStatusUi('connected', 'Google Drive: Connected', 'No existing cloud file found yet');
+            showToast('No saved file found in Google Drive yet. Click Sync to Drive first.', 'info');
+          }
+          return;
+        }
+
+        const dlResp = await fetch('https://www.googleapis.com/drive/v3/files/' + encodeURIComponent(fileId) + '?alt=media', {
+          headers: { Authorization: 'Bearer ' + driveState.accessToken },
+        });
+
+        if (!dlResp.ok) {
+          throw new Error('Download failed (' + dlResp.status + ')');
+        }
+
+        const cloudSnapshot = await dlResp.json();
+        applyDatabaseSnapshot(cloudSnapshot);
+        renderAll();
+
+        const timeLabel = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        updateDriveStatusUi('connected', 'Google Drive: Synced', 'Loaded from Drive at ' + timeLabel);
+        showToast('Loaded latest rosters and marks from Google Drive.', 'success');
+      } catch (err) {
+        updateDriveStatusUi('error', 'Google Drive: Load Error', err.message);
+        showToast('Could not load from Google Drive: ' + err.message, 'error');
+      }
+    }
+
+    function buildFullDatabaseSnapshot() {
+      const classes = ['XI', 'XII'];
+      const groups = ['A', 'A1', 'A2', 'B'];
+      const allExams = getExamsForClass('XI');
+
+      const snapshot = {
+        app: 'GGHSS_Valasaiyur_Mark_Entry_Portal',
+        version: 5,
+        updatedAt: new Date().toISOString(),
+        customExams: loadCustomExams(),
+        rosters: {},
+        marks: {},
+      };
+
+      classes.forEach(function (cls) {
+        groups.forEach(function (grp) {
+          const rKey = cls + '_' + grp;
+          snapshot.rosters[rKey] = loadRoster(cls, grp);
+          allExams.forEach(function (exObj) {
+            const mKey = cls + '_' + exObj.id + '_' + grp;
+            snapshot.marks[mKey] = loadExamData(cls, exObj.id, grp);
+          });
+        });
+      });
+
+      return snapshot;
+    }
+
+    function applyDatabaseSnapshot(snapshot) {
+      if (!snapshot || typeof snapshot !== 'object' || !snapshot.rosters || !snapshot.marks) {
+        throw new Error('Invalid mark entry backup file format.');
+      }
+
+      if (Array.isArray(snapshot.customExams)) {
+        safeSetStorage(CUSTOM_EXAMS_STORAGE_KEY, JSON.stringify(snapshot.customExams));
+      }
+
+      Object.keys(snapshot.rosters).forEach(function (rKey) {
+        const parts = rKey.split('_');
+        if (parts.length === 2 && Array.isArray(snapshot.rosters[rKey])) {
+          safeSetStorage(getRosterStorageKey(parts[0], parts[1]), JSON.stringify(snapshot.rosters[rKey]));
+        }
+      });
+
+      Object.keys(snapshot.marks).forEach(function (mKey) {
+        const firstSep = mKey.indexOf('_');
+        const lastSep = mKey.lastIndexOf('_');
+        if (firstSep > 0 && lastSep > firstSep && snapshot.marks[mKey] && typeof snapshot.marks[mKey] === 'object') {
+          const cls = mKey.slice(0, firstSep);
+          const examId = mKey.slice(firstSep + 1, lastSep);
+          const grp = mKey.slice(lastSep + 1);
+          safeSetStorage(getExamStorageKey(cls, examId, grp), JSON.stringify(snapshot.marks[mKey]));
+        }
+      });
+
+      markLocalSaved();
+    }
+
+    function exportBackupJson() {
+      const snapshot = buildFullDatabaseSnapshot();
+      const blob = new Blob([JSON.stringify(snapshot, null, 2)], { type: 'application/json;charset=utf-8;' });
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      triggerBlobDownload(blob, 'GGHSS_Valasaiyur_Backup_' + dateStamp + '.json');
+      showToast('Backup JSON downloaded.', 'success');
+    }
+
+    function triggerRestoreJson() {
+      const fileInput = document.getElementById('input-restore-json');
+      if (fileInput) {
+        fileInput.value = '';
+        fileInput.click();
+      }
+    }
+
+    function handleRestoreJsonFile(event) {
+      const file = event.target && event.target.files ? event.target.files[0] : null;
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          applyDatabaseSnapshot(parsed);
+          renderAll();
+          showToast('Restored database from ' + file.name + '.', 'success');
+          scheduleAutoDriveSync();
+        } catch (err) {
+          showToast('Restore failed: ' + err.message, 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    /* ==========================================================================
+       8C. PRINT HANDLERS: CONSOLIDATED SHEET & 2-PER-A4 INDIVIDUAL PROGRESS CARDS
+       ========================================================================== */
+    function setPrintPageOrientation(orientation) {
+      const styleTag = document.getElementById('dynamic-print-page-style');
+      if (styleTag) {
+        styleTag.textContent = orientation === 'portrait'
+          ? '@page { size: A4 portrait; margin: 7mm; }'
+          : '@page { size: A4 landscape; margin: 6mm; }';
+      }
+      if (orientation === 'portrait') {
+        document.body.classList.add('print-mode-cards');
+      } else {
+        document.body.classList.remove('print-mode-cards');
+      }
+    }
+
+    function printConsolidatedSheet() {
+      setPrintPageOrientation('landscape');
+      window.print();
+    }
+
+    function openPrintCardsModal() {
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      if (roster.length === 0) {
+        showToast('Add students to the roster before printing Individual Progress Cards.', 'error');
+        return;
+      }
+
+      const listContainer = document.getElementById('print-cards-student-list');
+      if (!listContainer) return;
+
+      listContainer.innerHTML = roster.map(function (st, idx) {
+        const displayLabel = (st.rollNo ? st.rollNo + ' — ' : '') + (st.name.trim() || 'Student ' + (idx + 1));
+        return '<label class="student-check-item">' +
+          '<input type="checkbox" class="card-student-checkbox" value="' + st.id + '" checked onchange="updateSelectedCardsCount()" />' +
+          '<span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">' + escapeHtml(displayLabel) + '</span>' +
+        '</label>';
+      }).join('');
+
+      updateSelectedCardsCount();
+      openModal('modal-print-cards');
+    }
+
+    function toggleAllCardCheckboxes(checked) {
+      const boxes = document.querySelectorAll('.card-student-checkbox');
+      boxes.forEach(function (cb) { cb.checked = Boolean(checked); });
+      updateSelectedCardsCount();
+    }
+
+    function updateSelectedCardsCount() {
+      const checkedCount = document.querySelectorAll('.card-student-checkbox:checked').length;
+      const label = document.getElementById('print-cards-count-label');
+      if (label) {
+        const sheets = Math.ceil(checkedCount / 2);
+        label.textContent = checkedCount + ' student(s) selected (' + sheets + ' A4 sheet' + (sheets === 1 ? '' : 's') + ' @ 2 per page)';
+      }
+    }
+
+    function computeClassRanks(evaluatedRoster) {
+      const scored = evaluatedRoster
+        .filter(function (item) { return item.evalRes.hasAnyMark; })
+        .slice()
+        .sort(function (a, b) { return b.evalRes.grandTotal - a.evalRes.grandTotal; });
+
+      const rankMap = {};
+      let currentRank = 1;
+      for (let i = 0; i < scored.length; i++) {
+        if (i > 0 && scored[i].evalRes.grandTotal < scored[i - 1].evalRes.grandTotal) {
+          currentRank = i + 1;
+        }
+        rankMap[scored[i].student.id] = currentRank + ' / ' + scored.length;
+      }
+      return rankMap;
+    }
+
+    function buildSingleStudentCardHtml(student, evalRes, rankText) {
+      const currentExam = getExamConfigById(state.selectedClass, state.selectedExamId);
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const isMonthly = isMonthlyDirectExam(state.selectedExamId);
+      const isMidTerm = isMidTermExam(state.selectedExamId);
+      const examMaxTotal = getExamMaxTotal(state.selectedExamId);
+
+      let tableHeadHtml = '';
+      if (isMonthly) {
+        tableHeadHtml = '<tr>' +
+          '<th style="width:7%;">S.No</th>' +
+          '<th style="width:45%; text-align:left; padding-left:3mm;">Subject</th>' +
+          '<th style="width:16%;">Max Marks</th>' +
+          '<th style="width:16%;">Marks Obtained</th>' +
+          '<th style="width:16%;">Result</th>' +
+        '</tr>';
+      } else {
+        tableHeadHtml = '<tr>' +
+          '<th style="width:6%;">S.No</th>' +
+          '<th style="width:28%; text-align:left; padding-left:3mm;">Subject</th>' +
+          '<th style="width:14%;">' + (isMidTerm ? 'Written / Conv' : 'Theory') + '</th>' +
+          '<th style="width:11%;">Int (10)</th>' +
+          '<th style="width:11%;">Prac (20)</th>' +
+          '<th style="width:14%;">Total (100)</th>' +
+          '<th style="width:16%;">Status</th>' +
+        '</tr>';
+      }
+
+      let subjectRowsHtml = '';
+      groupCfg.subjects.forEach(function (subj, idx) {
+        const scheme = getSubjectScheme(subj, state.selectedExamId);
+        const entry = evalRes.entries[idx];
+        const calc = evalRes.subjectResults[idx];
+
+        let statusText = '—';
+        let statusStyle = '';
+        if (calc.hasData) {
+          if (calc.isAbsent) {
+            statusText = 'AB (FAIL)';
+            statusStyle = 'font-weight:800; color:#be123c;';
+          } else if (calc.isPass === false) {
+            statusText = 'FAIL';
+            statusStyle = 'font-weight:800; color:#be123c;';
+          } else if (calc.isPass === true) {
+            statusText = 'PASS';
+            statusStyle = 'font-weight:800; color:#047857;';
+          }
+        }
+
+        if (isMonthly) {
+          const obtDisplay = !calc.hasData ? '—' : (calc.isAbsent ? 'AB' : calc.finalTotal);
+          subjectRowsHtml += '<tr>' +
+            '<td>' + (idx + 1) + '</td>' +
+            '<td class="spc-subj-name">' + escapeHtml(subj) + '</td>' +
+            '<td>' + scheme.rawMax + '</td>' +
+            '<td style="font-weight:800;">' + obtDisplay + '</td>' +
+            '<td style="' + statusStyle + '">' + statusText + '</td>' +
+          '</tr>';
+        } else {
+          let theoryDisp = '—';
+          if ((entry.test || '').trim() !== '') {
+            if (calc.isAbsent) {
+              theoryDisp = 'AB';
+            } else if (isMidTerm) {
+              theoryDisp = entry.test + '/' + scheme.rawMax + ' &rarr; ' + calc.convertedTheory;
+            } else {
+              theoryDisp = entry.test + '/' + scheme.rawMax;
+            }
+          }
+          const intDisp = calc.isAbsent ? '0' : (entry.int || '—');
+          const pracDisp = scheme.hasPractical ? (calc.isAbsent ? '0' : (entry.prac || '—')) : 'N/A';
+          const totDisp = !calc.hasData ? '—' : (calc.isAbsent ? 'AB' : calc.finalTotal);
+
+          subjectRowsHtml += '<tr>' +
+            '<td>' + (idx + 1) + '</td>' +
+            '<td class="spc-subj-name">' + escapeHtml(subj) + '</td>' +
+            '<td>' + theoryDisp + '</td>' +
+            '<td>' + intDisp + '</td>' +
+            '<td>' + pracDisp + '</td>' +
+            '<td style="font-weight:800;">' + totDisp + '</td>' +
+            '<td style="' + statusStyle + '">' + statusText + '</td>' +
+          '</tr>';
+        }
+      });
+
+      const grandTotText = evalRes.hasAnyMark ? (evalRes.grandTotal + ' / ' + examMaxTotal) : ('— / ' + examMaxTotal);
+      const pctText = evalRes.hasAnyMark ? (evalRes.percentage.toFixed(1) + '%') : '—';
+      const resultText = evalRes.status;
+
+      return '<article class="student-progress-card">' +
+        '<div>' +
+          '<div class="spc-header">' +
+            '<h2 class="spc-school-name">GOVERNMENT GIRLS HIGHER SECONDARY SCHOOL, VALASAIYUR</h2>' +
+            '<p class="spc-school-sub">INDIVIDUAL STUDENT PROGRESS REPORT &bull; ' + escapeHtml(currentExam.name.toUpperCase()) + '</p>' +
+          '</div>' +
+
+          '<div class="spc-meta-grid">' +
+            '<div class="spc-meta-item"><span class="spc-meta-label">Name: </span><span class="spc-meta-val">' + escapeHtml(student.name.trim() || '—') + '</span></div>' +
+            '<div class="spc-meta-item"><span class="spc-meta-label">Roll No: </span><span class="spc-meta-val">' + escapeHtml(student.rollNo || '—') + '</span></div>' +
+            '<div class="spc-meta-item"><span class="spc-meta-label">Class: </span><span class="spc-meta-val">' + escapeHtml(state.selectedClass + ' - Group ' + state.selectedGroup) + '</span></div>' +
+            '<div class="spc-meta-item"><span class="spc-meta-label">Medium: </span><span class="spc-meta-val">' + escapeHtml(groupCfg.medium) + '</span></div>' +
+            '<div class="spc-meta-item"><span class="spc-meta-label">Class Rank: </span><span class="spc-meta-val">' + escapeHtml(rankText || '—') + '</span></div>' +
+            '<div class="spc-meta-item"><span class="spc-meta-label">Date: </span><span class="spc-meta-val">' + new Date().toLocaleDateString('en-IN') + '</span></div>' +
+          '</div>' +
+
+          '<table class="spc-table">' +
+            '<thead>' + tableHeadHtml + '</thead>' +
+            '<tbody>' + subjectRowsHtml + '</tbody>' +
+          '</table>' +
+
+          '<div class="spc-summary-bar">' +
+            '<span>Grand Total: ' + grandTotText + '</span>' +
+            '<span>Percentage: ' + pctText + '</span>' +
+            '<span>Result: ' + resultText + '</span>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="spc-signatures">' +
+          '<div class="spc-sig-col">Parent / Guardian</div>' +
+          '<div class="spc-sig-col">Class Teacher</div>' +
+          '<div class="spc-sig-col">Headmistress, GGHSS Valasaiyur</div>' +
+        '</div>' +
+      '</article>';
+    }
+
+    function executePrintIndividualCards() {
+      const checkedBoxes = Array.prototype.slice.call(document.querySelectorAll('.card-student-checkbox:checked'));
+      if (checkedBoxes.length === 0) {
+        showToast('Please select at least one student to print.', 'error');
+        return;
+      }
+
+      const selectedIds = new Set(checkedBoxes.map(function (cb) { return cb.value; }));
+      const roster = loadRoster(state.selectedClass, state.selectedGroup);
+      const groupCfg = GROUPS_CONFIG[state.selectedGroup];
+      const examData = loadExamData(state.selectedClass, state.selectedExamId, state.selectedGroup);
+
+      const evaluatedAll = roster.map(function (st) {
+        return {
+          student: st,
+          evalRes: evaluateStudent(examData.marks[st.id], groupCfg.subjects, state.selectedExamId),
+        };
+      });
+      const rankMap = computeClassRanks(evaluatedAll);
+
+      const selectedEvaluated = evaluatedAll.filter(function (item) {
+        return selectedIds.has(item.student.id);
+      });
+
+      const container = document.getElementById('individual-cards-print-container');
+      if (!container) return;
+
+      let sheetsHtml = '';
+      for (let i = 0; i < selectedEvaluated.length; i += 2) {
+        const first = selectedEvaluated[i];
+        const second = selectedEvaluated[i + 1] || null;
+
+        sheetsHtml += '<section class="a4-card-sheet">';
+        sheetsHtml += buildSingleStudentCardHtml(first.student, first.evalRes, rankMap[first.student.id]);
+        if (second) {
+          sheetsHtml += '<div class="card-cut-divider"><span>&#9986; CUT / FOLD HERE &#9986;</span></div>';
+          sheetsHtml += buildSingleStudentCardHtml(second.student, second.evalRes, rankMap[second.student.id]);
+        }
+        sheetsHtml += '</section>';
+      }
+
+      container.innerHTML = sheetsHtml;
+      closeModal('modal-print-cards');
+      setPrintPageOrientation('portrait');
+
+      setTimeout(function () {
+        window.print();
+      }, 60);
+    }
+
+    window.addEventListener('afterprint', function () {
+      setPrintPageOrientation('landscape');
+    });
+
+    /* ==========================================================================
+       9. UTILITIES, MODALS & INITIALIZATION
+       ========================================================================== */
+    function escapeHtml(str) {
+      return String(str === undefined || str === null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function triggerBlobDownload(blob, fileName) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('open');
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('open');
+    }
+
+    function openConfirmModal(title, message, onConfirm) {
+      const titleEl = document.getElementById('modal-confirm-title');
+      const msgEl = document.getElementById('modal-confirm-message');
+      const yesBtn = document.getElementById('modal-confirm-yes');
+
+      if (titleEl) titleEl.textContent = title;
+      if (msgEl) msgEl.textContent = message;
+      if (yesBtn) {
+        yesBtn.onclick = function () {
+          closeModal('modal-confirm');
+          if (typeof onConfirm === 'function') onConfirm();
+        };
+      }
+      openModal('modal-confirm');
+    }
+
+    function showToast(message, type) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = 'toast' + (type ? ' ' + type : '');
+      toast.textContent = message;
+      container.appendChild(toast);
+
+      setTimeout(function () {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.25s ease';
+        setTimeout(function () {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 260);
+      }, 3200);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const autoSyncChk = document.getElementById('chk-drive-autosync');
+      if (autoSyncChk) autoSyncChk.checked = driveState.autoSync;
+
+      const tbody = document.getElementById('table-body');
+      if (tbody) {
+        tbody.addEventListener('input', function (e) {
+          const target = e.target;
+          if (!target) return;
+          if (target.classList.contains('mark-input')) {
+            handleMarkInputEvent(target);
+          } else if (target.classList.contains('meta-input')) {
+            handleMetaInputEvent(target);
+          }
+        });
+
+        tbody.addEventListener('keydown', function (e) {
+          const target = e.target;
+          if (!target || !target.classList.contains('mark-input')) return;
+
+          const row = parseInt(target.dataset.row, 10);
+          const col = parseInt(target.dataset.col, 10);
+          let nextRow = row;
+          let nextCol = col;
+
+          if (e.key === 'Enter' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            nextRow = row + 1;
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            nextRow = row - 1;
+          } else if (e.key === 'ArrowRight' && target.selectionStart === target.value.length) {
+            e.preventDefault();
+            nextCol = col + 1;
+          } else if (e.key === 'ArrowLeft' && target.selectionStart === 0) {
+            e.preventDefault();
+            nextCol = col - 1;
+          } else {
+            return;
+          }
+
+          const nextInput = tbody.querySelector('input.mark-input[data-row="' + nextRow + '"][data-col="' + nextCol + '"]');
+          if (nextInput) {
+            nextInput.focus();
+            nextInput.select();
+          }
+        });
+      }
+
+      document.querySelectorAll('.modal-backdrop').forEach(function (backdrop) {
+        backdrop.addEventListener('click', function (e) {
+          if (e.target === backdrop) {
+            backdrop.classList.remove('open');
+          }
+        });
+      });
+
+      renderAll();
+    });
+  </script>
+</body>
+</html>
